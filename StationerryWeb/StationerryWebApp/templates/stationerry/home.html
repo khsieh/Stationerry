@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Stationerry</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" -->
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+    </head>
+    <body>
+    		<!-- Navbar -->
+    		<nav class="navbar navbar navbar-fixed-top" id="stationerry-navbar">
+    			<div class="container">
+    				<div class="navbar-header">
+    					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    					</button>
+
+    					<!-- TODO: replace empty string with an actual link -->
+    					<a href="" class="navbar-brand">Stationerry</a>
+    				</div>
+
+    				<div class="collapse navbar-collapse" id="navbar-collapse">
+    					<ul class="nav navbar-nav">
+	    					<li><a href="#feedback">Feedback</a>
+	    					<li><a href="#feedback">Feedback</a>
+	    					<li><a href="#feedback">Feedback</a>
+    					</ul>
+    				</div>
+    			</div>
+    		</nav>	
+	    	<h1>
+	        <p>Hi there!</p>
+	        <p>It works! Hail Wailord!</p>
+	    	</h1>
+
+	    <!-- Latest compiled and minifired Javascript -->
+	    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>	
+	    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>
