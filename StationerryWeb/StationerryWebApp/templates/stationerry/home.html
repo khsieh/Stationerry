@@ -27,11 +27,15 @@
     				</div>
 
     				<div class="collapse navbar-collapse" id="navbar-collapse">
+
+              <!--
     					<ul class="nav navbar-nav">
 	    					<li><a href="#feedback">Feedback</a>
 	    					<li><a href="#feedback">Feedback</a>
 	    					<li><a href="#feedback">Feedback</a>
     					</ul>
+
+              -->
     				</div>
     			</div>
     		</nav>	
@@ -101,5 +105,14 @@
       <!-- script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script -->
 	    <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
       <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+      <!-- Menu Toggle Script -->
+      <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });
+      </script>
+
     </body>
 </html>

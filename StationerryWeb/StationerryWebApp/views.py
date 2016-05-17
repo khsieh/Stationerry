@@ -11,4 +11,4 @@ def foo(request):
     return HttpResponse("Hello World!")
 
 def home(request):
-	return render(request, 'stationerry/home.html', {})
+	return render(request, 'stationerry/base.html', {})

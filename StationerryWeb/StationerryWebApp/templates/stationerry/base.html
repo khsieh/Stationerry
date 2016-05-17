@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Stationerry</title>
+        <!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"-->
+        <!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" -->
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+    </head>
+    <body>
+    		
+        <aside class="sidebar-left">
+
+            <a class="company-logo" href="#">Logo</a>
+
+            <div class="sidebar-links">
+                <a class="link-blue" href="#"><i class="fa fa-picture-o"></i>Photography</a>
+                <a class="link-red" href="#"><i class="fa fa-heart-o"></i>Favorites</a>
+                <a class="link-yellow selected" href="#"><i class="fa fa-keyboard-o"></i>Projects</a>
+                <a class="link-green" href="#"><i class="fa fa-map-marker"></i>Places</a>
+            </div>
+
+        </aside>
+
+        <div class="main-content" style="width: 100%;">
+
+            <div class="menu">
+
+            </div>
+
+        </div>
+
+        <h1 style="text-align: center;">Hail Wailord</h1>
+
+        <!-- Latest compiled and minifired Javascript -->
+        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+        <!-- script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script -->
+        <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
+        <script>
+
+            $(function () {
+
+                var links = $('.sidebar-links > a');
+
+                links.on('click', function () {
+
+                    links.removeClass('selected');
+                    $(this).addClass('selected');
+
+                })
+            });
+
+        </script>
+    </body>
+</html>

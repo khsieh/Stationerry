@@ -4,8 +4,9 @@ References views in StationerryWebApp.views which tell you which html file to di
 
 In Android Studio, it's similar to doing
 setContentView(R.layout.xml_file);
+Which tells you to use a specific xml file to display for the current activity / fragment.
 
-However, it's a 3 part step.
+However, it's a 3 part step (compared to two for Android).
 url -> views -> html file.
 
 Guide: http://tutorial.djangogirls.org/en/django_urls/
