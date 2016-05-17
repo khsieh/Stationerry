@@ -46,7 +46,7 @@ h1.wailord {
 .sidebar-left a.company-logo {
     display: block;
     text-decoration: none;
-    font-family: Cookie, cursive;
+    font-family: Open Sans, cursive;
     width: 76px;
     height: 76px;
     margin: 0 auto;
@@ -74,11 +74,16 @@ h1.wailord {
     text-align: center;
     color:  #b3bcc5; /* sidebox text color */
     font-size: 18px;
-    font-weight: bold;
     border-left-width: 0px;
     border-left-style: solid;
     height: 150px;
+    outline: none;
     box-shadow: inset -10px 0px 20px -20px #000000;
+    transition:background 0.5s;
+}
+
+.sidebar-left .sidebar-links a:hover {
+    background-color: #292c2f;
 }
 
 .sidebar-left .sidebar-links a i.fa {
@@ -88,13 +93,33 @@ h1.wailord {
 }
 
 .sidebar-left .sidebar-links a.selected{
-    background-color: #2F4F4F; /* selected sidebox color */
+    background-color: #35393e; /* selected sidebox color */
     color:  #7c8085;
     font-size: 18px;
-    font-weight: bold;
     cursor: default;
     outline: none;
     box-shadow: inset 0px 0px 0px 0px #000000;
+}
+
+/* This is for the triangle */
+.sidebar-left .sidebar-links a.selected:before{
+    content: " ";
+    z-index: -1;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    margin-top: 0px;
+    left:190px;
+    border: 30px solid transparent;
+    border-left: 30px solid #35393e;
+
+    /*
+    -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -moz-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -ms-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -o-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    filter: drop-shadow(0px 5px 6px rgba(0,0,0,0));
+    */
 }
 
 /* Link Colors */
@@ -211,4 +236,13 @@ h1.wailord {
 body {
     margin: 0;
     padding: 0;
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    
+    border-left: 60px solid green;
 }
