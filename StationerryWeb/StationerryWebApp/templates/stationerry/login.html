@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Stationerry</title>
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+    </head>
+
+    <body>
+
+	 <div class="container">
+
+
+	      <div id="login">
+
+	        <form method="post">
+
+	          <fieldset class="clearfix">
+
+	            <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+	            <p><span class="fontawesome-lock"></span><input type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+	            <p><input type="submit" value="Sign In"></p>
+
+	          </fieldset>
+
+	        </form>
+
+	        <p>Not a member? <a href="{% url 'main' %}" class="blue">Sign up now</a><span class="fontawesome-arrow-right"></span>
+	        <br><br>
+	        protip: Click on 'Sign up now' to go to the main page :)
+	        </p>
+
+	      </div> <!-- end login -->
+
+	    </div>
+    
+        <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        
+    </body>
+</html>
