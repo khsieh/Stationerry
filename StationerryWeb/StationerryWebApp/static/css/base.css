@@ -20,9 +20,9 @@ h1 {
 }
 
 body {
-    /* background-color: #ffffff; */
-    background-image: url("../images/stationerybg-light.jpg");
-    background-repeat: repeat;
+    background-color: #ffffff;
+    /* background-image: url("../images/stationerybg-light.jpg");
+    background-repeat: repeat; */
     width: 100%;
 }
 
@@ -66,7 +66,8 @@ h1.wailord {
     margin-top: 50px;
     width: 120px;
     height: 100%;
-    box-shadow: inset -10px 0px 20px -20px #000000;
+    /* box-shadow: inset -10px 0px 20px -20px #000000; */
+    box-shadow: 1px 0px 5px 1px #0B3C5D;
 }
 
 /*
@@ -104,7 +105,7 @@ h1.wailord {
     border-left-style: solid;
     height: 150px;
     outline: none;
-    box-shadow: inset -10px 0px 20px -20px #000000;
+    /* box-shadow: inset -10px 0px 20px -20px #000000; */
     transition:background 0.5s;
 }
 
@@ -271,32 +272,48 @@ h1.wailord {
 /* Nav bar */
 /* http://antjanus.com/blog/uncategorized/make-bootstrap-3-theme-proper-way/ */
 .navbar {
-  min-height: 40px;
+  min-height: 30px;
+  box-shadow: 0px 0px 11px 2px #0B3C5D;
 }
 
 .navbar-default {
     background: #transparent;
     background-image: url("../images/officesupplies.jpg");
-    background-position: center; 
+    background-position: center;
     border: 0;
     margin-bottom: 0;
-
+    padding-top: 5px;
 }
 
 .navbar-default .navbar-brand {
     color: #ffffff;
 }
 
-.navbar-nav > li {
+/*
+.nav-pills > li {
   background: @black;
 
   a{
     padding: 10px;
   }
 }
+*/
+
+/* Navbar right pills */
+.nav.nav-pills.navbar-right li {
+    background-color: #0B3C5D;
+}
 
 /* Navbar right links */
-.nav.navbar-nav.navbar-right li a {
+.nav.nav-pills.navbar-right li a {
+    background-color: #0B3C5D;
+    color: #ffffff;
+    outline: none;
+}
+
+/* Navbar right links hover */
+.nav.nav-pills.navbar-right li a:hover {
+    background-color: #000000;
     color: #ffffff;
     outline: none;
 }
