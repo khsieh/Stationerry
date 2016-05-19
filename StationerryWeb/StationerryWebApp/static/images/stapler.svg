@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<?xml-stylesheet type="text/css" href="../css/base.css"?>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg3336"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   width="128"
+   height="62"
+   viewBox="0 0 128 62"
+   sodipodi:docname="stapler.svg"
+   style="enable-background:new">
+  <metadata
+     id="metadata3342">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3340" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     id="namedview3338"
+     showgrid="false"
+     inkscape:zoom="8"
+     inkscape:cx="59.415942"
+     inkscape:cy="21.603906"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4169" />
+  <g
+     inkscape:label="Stapler copy"
+     id="g4169"
+     inkscape:groupmode="layer"
+     style="display:inline"
+     transform="translate(0,-280)">
+    <path 
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.39813507;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 17.207939,280.19955 c -3.392583,0.0109 -6.390945,0.30516 -8.3587775,1.07067 -6.1808702,2.40441 -8.56643718,18.95391 -8.66663596,18.95391 l 8.84588436,2.29649 c 0.9797611,0.003 1.9652091,-0.0781 2.9304461,0.13383 0.60216,0.13223 4.443163,1.17886 4.495038,1.19286 5.555047,1.50653 11.127551,2.94844 16.700036,4.38936 2.367191,0.6121 4.728586,1.24342 7.102042,1.83099 4.7064,1.1651 8.739671,2.06369 13.424712,3.13054 2.760633,0.65107 5.547724,1.18024 8.321766,1.76698 0.119692,-0.24206 0.260293,-0.33581 0.385781,0.0214 0.008,0.0215 0.01746,0.0426 0.02534,0.064 0.127153,0.0272 0.254807,0.052 0.3819,0.0795 0,0 0.002,-0.002 0.002,-0.002 0.01586,-0.0205 0.101326,0.0234 0.07602,0.0175 -0.02594,-0.006 -0.05207,-0.01 -0.07791,-0.0155 -0.07951,0.10297 -0.146138,0.21507 -0.220179,0.32198 0.125318,0.29841 0.248072,0.59633 0.298112,0.91356 0.01387,0.088 -0.180975,0.009 -0.268883,-0.008 -0.194861,-0.0367 -0.387268,-0.084 -0.580632,-0.12801 -0.161621,0.20074 -0.242068,0.14134 -0.261092,-0.0562 -0.184187,-0.0425 -0.368283,-0.0839 -0.553358,-0.12219 -7.350305,-1.52183 1.900774,0.46095 -7.805418,-1.64285 -4.708057,-1.07214 -8.727799,-1.96686 -13.459787,-3.13831 -2.374105,-0.58772 -4.738104,-1.22065 -7.105944,-1.83292 -5.576445,-1.44196 -11.15272,-2.88369 -16.711718,-4.39129 -0.917879,-0.2478 -1.834633,-0.49933 -2.753141,-0.7448 -0.493193,-0.13181 -1.646846,-0.4846 -2.320584,-0.53729 -0.258996,-0.0203 -0.519579,0 -0.779374,0 l -0.3020027,0 -0.1286003,10.0375 73.171506,9.05218 c 0,0 1.478022,0.33197 3.606547,3.03356 2.355899,2.99016 0.823747,8.44468 -3.324027,8.56338 -13.392769,0.38328 -23.868319,-0.28318 -23.868319,-0.28318 l -53.5644088,0 c 0,0 -4.7841326,2.03075 -4.1189938,6.22422 0.4262338,2.68727 123.7509156,0.70603 123.7509156,0.70603 0,0 3.17683,-6.45801 -10.089,-6.0807 -4.97276,0.14144 8.94845,-1.70346 10.51959,-9.33536 1.35529,-6.5833 2.77601,-12.24409 1.13205,-14.84967 -3.46647,-5.49416 -2.23088,-5.64451 -29.553849,-14.28525 -19.372981,-6.04184 -37.729061,-9.5528 -56.405229,-13.86048 0,0 -13.713955,-2.51939 -23.891702,-2.48659 z"
+       id="path4171"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:connector-curvature="0" />
+    <g
+       inkscape:label="Stapler line"
+       id="g4173"
+       inkscape:groupmode="layer"
+       style="display:none">
+      <path
+         style="display:inline;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.03120744px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0"
+         d="M 260.35798,97.342743 338.94605,114.39507 260.06958,98.988139 Z"
+         id="path4175"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

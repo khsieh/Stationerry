@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'StationerryWebApp',
-    'bootstrap3',
+    'StationerryBackend',
 ]
 
 MIDDLEWARE_CLASSES = [
