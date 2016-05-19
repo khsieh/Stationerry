@@ -20,7 +20,6 @@ h1 {
 }
 
 body {
-    font-family: 'Open Sans';
     /* background-color: #ffffff; */
     background-image: url("../images/stationerybg-light.jpg");
     background-repeat: repeat;
@@ -64,20 +63,20 @@ h1.wailord {
     top: 0;
     left: 0;
     background-color: #4484CE; /* sidebar */
-    width: 150px;
+    margin-top: 50px;
+    width: 120px;
     height: 100%;
-    padding: 20px 0;
     box-shadow: inset -10px 0px 20px -20px #000000;
 }
 
+/*
 .sidebar-left a.company-logo {
     display: block;
     text-decoration: none;
     font-family: Open Sans, cursive;
     width: 76px;
     height: 76px;
-    margin: 0 auto;
-    padding: 0;
+    margin: 5% auto;
     text-align: center;
     color:  #ffffff;
     font-size: 28px;
@@ -87,9 +86,10 @@ h1.wailord {
     background-color:  #181a1b;
     outline: none;
 }
+*/
 
 .sidebar-left .sidebar-links {
-    margin: 20px auto;
+    /* margin: 20px auto; */
 }
 
 .sidebar-left .sidebar-links a {
@@ -135,7 +135,7 @@ h1.wailord {
     width: 0; 
     height: 0; 
     margin-top: 0px;
-    left:150px;
+    left:120px;
     border: 30px solid transparent;
     border-left: 30px solid #0B3C5D;
 
@@ -259,11 +259,6 @@ h1.wailord {
 /*  Removing margins and paddings from the body, so that
     the sidebar takes the full height of the page */
 
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .arrow-right {
     width: 0; 
     height: 0; 
@@ -280,10 +275,16 @@ body {
 }
 
 .navbar-default {
-  background: #ffffff;
-  z-index: 0;
-  border: 0;
-  margin-bottom: 0;
+    background: #transparent;
+    background-image: url("../images/officesupplies.jpg");
+    background-position: center; 
+    border: 0;
+    margin-bottom: 0;
+
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
 }
 
 .navbar-nav > li {
@@ -292,4 +293,10 @@ body {
   a{
     padding: 10px;
   }
+}
+
+/* Navbar right links */
+.nav.navbar-nav.navbar-right li a {
+    color: #ffffff;
+    outline: none;
 }
