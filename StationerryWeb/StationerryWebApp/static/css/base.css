@@ -16,10 +16,6 @@ Peach: #ffe680;
 Salmon: #fa7c92;
 */
 
-h1 {
-    color: #D2D490;
-}
-
 body {
     background-color: #ffffff;
     /* background-image: url("../images/stationerybg-light.jpg");
@@ -43,15 +39,21 @@ h1.wailord {
 }
 
 /* The main content */
-
-.main-content {
-    padding: 250px 200px 200px 390px;
-    font-family: Arial, Helvetica, sans-serif;
+.content-box {
     height: 100%;
-    vertical-align: center;
-    text-align: center;
-    padding-left: 190px;
-    margin: 0 0 40px 10px;
+    padding-top: 200px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    margin-right: 30px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 10px;
+
+    /* #99d3df */
+    box-shadow: 0px 0px 3px 1px #698d9d;
 }
 
 
@@ -135,10 +137,10 @@ h1.wailord {
     position: absolute;
     width: 0; 
     height: 0; 
-    margin-top: 0px;
+    margin-top: 15px;
     left:120px;
-    border: 30px solid transparent;
-    border-left: 30px solid #0B3C5D;
+    border: 20px solid transparent;
+    border-left: 20px solid #0B3C5D;
 
     /*
     -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
