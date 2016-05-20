@@ -26,9 +26,10 @@
        box-sizing: border-box;
 }
 
+
 body {
-  /* background: #2c3338; */
-  background-image: url("../images/staplerbg.jpg");
+  background: #ffffff url("../images/office.jpg") no-repeat fixed;
+  background-position: right bottom;
   color: #606468;
   font: 87.5%/1.5em 'Open Sans', sans-serif;
   margin: 0;
@@ -69,16 +70,27 @@ p {
   clear: both;
 }
 
-.container {
-  left: 50%;
-  position:absolute;
-  top: 50%;
-          transform: translate(-15%, 0%);
+.container-outside {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  width: 310px;
+  height: 320px;
+  background-color:rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
+
+.container {
+  padding-top: 20px;
+}
+
 
 /* ---------- LOGIN ---------- */
 #login {
   width: 280px;
+  color: #99d3df;
 }
 
 #login form span {
@@ -130,3 +142,12 @@ p {
   padding-left: 5px;
 }
 
+#signup 
+{
+  color: #ffe680;
+}
+
+#signup:hover
+{
+  color: #ffffff;
+}

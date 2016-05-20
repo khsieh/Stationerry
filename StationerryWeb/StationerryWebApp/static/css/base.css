@@ -13,6 +13,7 @@ Papaya: #E24E42;
 Gold Leaf: #d9b310;
 Golden: #f9be02;
 Peach: #ffe680;
+Salmon: #fa7c92;
 */
 
 h1 {
@@ -41,7 +42,6 @@ h1.wailord {
     filter:         drop-shadow(1px 1px 2px #0B3C5D);
 }
 
-
 /* The main content */
 
 .main-content {
@@ -63,7 +63,7 @@ h1.wailord {
     top: 0;
     left: 0;
     background-color: #4484CE; /* sidebar */
-    margin-top: 50px;
+    margin-top: 55px;
     width: 120px;
     height: 100%;
     /* box-shadow: inset -10px 0px 20px -20px #000000; */
@@ -97,13 +97,13 @@ h1.wailord {
     display: block;
     text-decoration: none;
     margin: 0 auto 5px auto;
-    padding: 45px 0;
+    padding: 15px 0;
     text-align: center;
     color:  #d9d9d9; /* sidebox text color */
     font-size: 18px;
     border-left-width: 0px;
     border-left-style: solid;
-    height: 150px;
+    height: 100px;
     outline: none;
     /* box-shadow: inset -10px 0px 20px -20px #000000; */
     transition:background 0.5s;
@@ -157,7 +157,7 @@ h1.wailord {
 
 /* Icon color */
 .sidebar-left .sidebar-links a.link-blue i.fa {
-    color: #487db2;
+    color: #ffffff;
 }
 
 .sidebar-left .sidebar-links a.link-red {
@@ -199,24 +199,47 @@ h1.wailord {
 
     .sidebar-left {
         width: auto;
-        height: auto;
+        height: 10px;
         position: inherit;
-        padding: 20px 0 0;
+        padding: 10px 0 0;
     }
 
     .sidebar-left .sidebar-links {
         text-align: center;
-        margin: 20px auto 0;
+        height: 15px;
+        margin: 0;
     }
 
     .sidebar-left .sidebar-links a {
         display: inline-block;
-        width: 100px;
         margin: 0;
-        padding: 14px 0;
+        padding: 0;
+        /*
         border-left: none;
         border-top-width: 2px;
         border-top-style: solid;
+        */
+    }
+
+    /* This is for the triangle */
+    .sidebar-left .sidebar-links a.selected:before{
+        content: " ";
+        z-index: -1;
+        position: absolute;
+        width: 0; 
+        height: 0; 
+        margin-top: 0px;
+        left:120px;
+        border: 30px solid transparent;
+        border-top: 30px solid #0B3C5D;
+
+        /*
+        -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -moz-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -ms-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -o-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        filter: drop-shadow(0px 5px 6px rgba(0,0,0,0));
+        */
     }
 
 }
@@ -277,8 +300,8 @@ h1.wailord {
 }
 
 .navbar-default {
-    background: #transparent;
-    background-image: url("../images/officesupplies.jpg");
+    background: #4484CE;
+    /* background-image: url("../images/officesupplies.jpg"); */
     background-position: center;
     border: 0;
     margin-bottom: 0;

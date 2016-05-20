@@ -13,32 +13,38 @@
 
     <body>
 
-	 <div class="container">
+	<div class="container-outside">
 
+		<div class="container">
 
 	      <div id="login">
 
 	        <form method="post">
+
 	        	<!-- https://docs.djangoproject.com/en/dev/ref/csrf/ -->
+	        	{% csrf_token %}
 
-	          <fieldset class="clearfix">
+				<fieldset class="clearfix">
 
-	            <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-	            <p><span class="fontawesome-lock"></span><input type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
-	            <p><input type="submit" value="Sign In"></p>
+		            <p><span class="fontawesome-user"></span><input type="text" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+		            <p><span class="fontawesome-lock"></span><input type="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+		            <p><input type="submit" value="Sign In"></p>
 
-	          </fieldset>
+				</fieldset>
 
 	        </form>
 
-	        <p>Not a member? <a href="{% url 'main' %}" class="blue">Sign up now</a><span class="fontawesome-arrow-right"></span>
-	        <br><br>
-	        protip: Click on 'Sign up now' to go to the main page :)
+	        <p>
+		        Not a member? <a href="{% url 'main' %}" class="blue" id="signup">Sign up now</a><span class="fontawesome-arrow-right"></span>
+		        <br><br>
+		        protip: Click on 'Sign up now' to go to the main page :)
 	        </p>
 
 	      </div> <!-- end login -->
 
 	    </div>
+
+	</div> <!-- end container outside -->
     
         <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
