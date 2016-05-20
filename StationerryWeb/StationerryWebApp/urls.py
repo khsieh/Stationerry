@@ -39,4 +39,5 @@ urlpatterns = [
     url(r'^$', views.userLogin, name='home'),
     url(r'^login/$', views.userLogin, name='login'),
     url(r'^main/$', views.main, name='main'),
+    url(r'^stats/$', views.stats, name='stats'),
 ]
