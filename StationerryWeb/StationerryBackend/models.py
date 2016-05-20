@@ -8,6 +8,7 @@ from django.db import models
 class App(models.Model) :
     App_Name = models.TextField()
     App_Version = models.TextField()
+    Platform = models.TextField()
 
     def __unicode__(self) :
         return self.App_Name + " " + self.App_Version
@@ -18,7 +19,6 @@ class BugReport(models.Model) :
     Error_Message = models.TextField()
     Time = models.DateTimeField(auto_now=True)
     App_Name = models.ForeignKey(App, on_delete=models.CASCADE, related_name='Name')
-    Platform = models.TextField()
 
     def __unicode__(self) :
         return self.App_Name + " " + self.App_Version + " :" + self.App_Message
