@@ -14,22 +14,73 @@
     </head>
     <body>
 
-    		<div>
-        <aside class="sidebar-left">
+    <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
 
-            <a class="company-logo" href="#">Logo</a>
-
-            <div class="sidebar-links">
-
-                <a class="link-blue" href="#"><img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects</a>
-
-                <a class="link-red" href="#"><i class="fa fa-heart-o"></i>Favorites</a>
-                <a class="link-yellow selected" href="#"><i class="fa fa-keyboard-o"></i>Projects</a>
-                <a class="link-green" href="#"><i class="fa fa-map-marker"></i>Places</a>
+              <a class="navbar-brand" href="#">Stationerry</a>
             </div>
 
-        </aside>
-            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+              <ul class="nav nav-pills navbar-right">
+                <li role="presentation"><a href="#">Home</a></li>
+                <li role="presentation"><a href="#about">About</a></li>
+                <li role="presentation"><a href="#contact">Contact</a></li>
+
+                <!-- Drop down -->
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+
+                <!-- drop down-->
+
+                <li role="presentation"><a href="{% url 'login' %}">Logout</a></li>
+
+
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+    	<div>
+            <aside class="sidebar-left">
+
+
+                <!-- a class="company-logo" href="#">Logo</a -->
+
+                <div class="sidebar-links">
+
+                    <!-- <img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects -->
+                    <!--a class="link-blue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
+                    <a class="link-blue" href="#"><i class="fa fa-bar-chart"></i>Statistics</a>
+                    <a class="link-red" href="#"><i class="fa fa-paperclip"></i>Projects</a>
+                    <a class="link-yellow" href="#"><i class="fa fa-eraser"></i>Temp</a>
+                    <a class="link-green" href="#"><i class="fa fa-scissors"></i>Temp</a>
+
+                    <!--a class="link-green" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a>
+                </div>
+
+            </aside>
+        </div>
+
         <div class="main-content">
 
             <h1 class="wailord">Hail Wailord</h1>
