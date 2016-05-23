@@ -1,0 +1,345 @@
+@import url ("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600");
+@import "../less/variables.less";
+@import "../less/mixins.less";
+
+/*
+Colors: 
+Mustard: #E9B000
+Light Blue: #698d9d
+Prussian Blue: #0B3C5D;
+Cerulean: #4484CE;
+Teal: #3d485f
+Papaya: #E24E42;
+Gold Leaf: #d9b310;
+Golden: #f9be02;
+Peach: #ffe680;
+Salmon: #fa7c92;
+*/
+
+h1 {
+    color: #D2D490;
+}
+
+body {
+    background-color: #ffffff;
+    /* background-image: url("../images/stationerybg-light.jpg");
+    background-repeat: repeat; */
+    width: 100%;
+}
+
+h1.wailord {
+    color: #ffffff;
+    /* text-shadow: h-shadow v-shadow blur-radius color|none|initial|inherit; */
+    text-shadow: 2px 5px 10px #000000;
+}
+
+/* Icons */
+#stapler
+{
+    width: 64px;
+    height: 32px;
+    -webkit-filter: drop-shadow(1px 1px 2px #0B3C5D);
+    filter:         drop-shadow(1px 1px 2px #0B3C5D);
+}
+
+/* The main content */
+
+.main-content {
+    padding: 250px 200px 200px 390px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    vertical-align: center;
+    text-align: center;
+    padding-left: 190px;
+    margin: 0 0 40px 10px;
+}
+
+
+/* The left sidebar */
+
+.sidebar-left {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #4484CE; /* sidebar */
+    margin-top: 55px;
+    width: 120px;
+    height: 100%;
+    /* box-shadow: inset -10px 0px 20px -20px #000000; */
+    box-shadow: 1px 0px 5px 1px #0B3C5D;
+}
+
+/*
+.sidebar-left a.company-logo {
+    display: block;
+    text-decoration: none;
+    font-family: Open Sans, cursive;
+    width: 76px;
+    height: 76px;
+    margin: 5% auto;
+    text-align: center;
+    color:  #ffffff;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 2.6;
+    border-radius: 50%;
+    background-color:  #181a1b;
+    outline: none;
+}
+*/
+
+.sidebar-left .sidebar-links {
+    /* margin: 20px auto; */
+}
+
+.sidebar-left .sidebar-links a {
+    display: block;
+    text-decoration: none;
+    margin: 0 auto 5px auto;
+    padding: 15px 0;
+    text-align: center;
+    color:  #d9d9d9; /* sidebox text color */
+    font-size: 18px;
+    border-left-width: 0px;
+    border-left-style: solid;
+    height: 100px;
+    outline: none;
+    /* box-shadow: inset -10px 0px 20px -20px #000000; */
+    transition:background 0.5s;
+}
+
+.sidebar-left .sidebar-links a:hover {
+    color: #ffffff;
+}
+
+.sidebar-left .sidebar-links a i.fa {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.sidebar-left .sidebar-links a.selected{
+    background-color: #0B3C5D; /* selected sidebox color */
+    color:  #ffffff;
+    font-size: 18px;
+    cursor: default;
+    outline: none;
+    box-shadow: inset 0px 0px 0px 0px #000000;
+}
+
+/* This is for the triangle */
+.sidebar-left .sidebar-links a.selected:before{
+    content: " ";
+    z-index: -1;
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    margin-top: 0px;
+    left:120px;
+    border: 30px solid transparent;
+    border-left: 30px solid #0B3C5D;
+
+    /*
+    -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -moz-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -ms-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    -o-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+    filter: drop-shadow(0px 5px 6px rgba(0,0,0,0));
+    */
+}
+
+/* Link Colors */
+
+.sidebar-left .sidebar-links a.link-blue {
+    border-color: #ffffff;
+}
+
+/* Icon color */
+.sidebar-left .sidebar-links a.link-blue i.fa {
+    color: #ffffff;
+}
+
+.sidebar-left .sidebar-links a.link-red {
+    border-color: #da4545;
+}
+
+/* Icon color */
+.sidebar-left .sidebar-links a.link-red i.fa {
+    color: #ffffff;
+}
+
+.sidebar-left .sidebar-links a.link-yellow {
+    border-color: #d0d237;
+}
+
+/* Icon color */
+.sidebar-left .sidebar-links a.link-yellow i.fa {
+    color: #ffffff;
+}
+
+.sidebar-left .sidebar-links a.link-green {
+    border-color: #86be2e;
+}
+
+/* Icon color */
+.sidebar-left .sidebar-links a.link-green i.fa {
+    color: #ffffff;
+}
+
+/* Making the sidebar responsive */
+
+@media (max-width: 900px) {
+
+    .main-content{
+        max-width: none;
+        padding: 40px 20px;
+        margin: 0 0 40px;
+    }
+
+    .sidebar-left {
+        width: auto;
+        height: 10px;
+        position: inherit;
+        padding: 10px 0 0;
+    }
+
+    .sidebar-left .sidebar-links {
+        text-align: center;
+        height: 15px;
+        margin: 0;
+    }
+
+    .sidebar-left .sidebar-links a {
+        display: inline-block;
+        
+        margin: 0;
+        padding: 0;
+        /*
+        border-left: none;
+        border-top-width: 2px;
+        border-top-style: solid;
+        */
+    }
+
+    /* This is for the triangle */
+    .sidebar-left .sidebar-links a.selected:before{
+        content: " ";
+        z-index: -1;
+        position: absolute;
+        width: 0; 
+        height: 0; 
+        margin-top: 0px;
+        left:120px;
+        border: 30px solid transparent;
+        border-top: 30px solid #0B3C5D;
+
+        /*
+        -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -moz-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -ms-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        -o-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
+        filter: drop-shadow(0px 5px 6px rgba(0,0,0,0));
+        */
+    }
+
+}
+
+/* Mobile phone layout */
+
+@media (max-width: 450px) {
+
+    .sidebar-left {
+        padding: 20px 0;
+    }
+
+    .sidebar-left .sidebar-links {
+        text-align: center;
+        margin: 20px auto 0;
+    }
+
+    .sidebar-left .sidebar-links a {
+        display: block;
+        max-width: 240px;
+        width: auto;
+        vertical-align: middle;
+        text-align: left;
+        margin: 0 auto 5px;
+        padding: 10px 25px;
+        border-top: none;
+        border-left-width: 2px;
+        border-left-style: solid;
+    }
+
+    .sidebar-left .sidebar-links a i.fa {
+        display: inline-block;
+        font-size: 20px;
+        width: 20px;
+        margin: 0 20px 0 0;
+        vertical-align: middle;
+    }
+
+}
+
+/*  Removing margins and paddings from the body, so that
+    the sidebar takes the full height of the page */
+
+
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    
+    border-left: 60px solid green;
+}
+
+/* Nav bar */
+/* http://antjanus.com/blog/uncategorized/make-bootstrap-3-theme-proper-way/ */
+.navbar {
+  min-height: 30px;
+  box-shadow: 0px 0px 11px 2px #0B3C5D;
+}
+
+.navbar-default {
+    background: #4484CE;
+    /* background-image: url("../images/officesupplies.jpg"); */
+    background-position: center;
+    border: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+/*
+.nav-pills > li {
+  background: @black;
+
+  a{
+    padding: 10px;
+  }
+}
+*/
+
+/* Navbar right pills */
+.nav.nav-pills.navbar-right li {
+    background-color: #0B3C5D;
+}
+
+/* Navbar right links */
+.nav.nav-pills.navbar-right li a {
+    background-color: #0B3C5D;
+    color: #ffffff;
+    outline: none;
+}
+
+/* Navbar right links hover */
+.nav.nav-pills.navbar-right li a:hover {
+    background-color: #000000;
+    color: #ffffff;
+    outline: none;
+}

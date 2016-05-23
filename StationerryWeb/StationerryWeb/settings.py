@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'StationerryWebApp'
+    'StationerryWebApp',
+    'StationerryBackend',
     'bootstrap3',
 ]
 
@@ -75,6 +76,7 @@ WSGI_APPLICATION = 'StationerryWeb.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+# http://www.codeproject.com/Articles/25511/Teach-Yourself-Django-in-Hours-Hour-Creating
 
 DATABASES = {
     'default': {
