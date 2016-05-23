@@ -15,6 +15,7 @@ Views are referenced by StationerryWebApp.urls
 LOGIN_URL = '/login/'
 LOGIN_TEMPLATE = 'stationerry/login.html'
 MAIN_TEMPLATE = 'stationerry/base.html'
+STATS_TEMPLATE = 'stationerry/stats.html'
 
 def foo(request):
     return HttpResponse("Hello World!")
@@ -64,3 +65,6 @@ def logout(request):
 # @login_required
 def main(request):
 	return render(request, MAIN_TEMPLATE, {})
+
+def stats(request):
+	return render(request, STATS_TEMPLATE, {})
