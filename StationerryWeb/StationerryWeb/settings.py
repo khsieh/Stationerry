@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'StationerryWebApp',
     'StationerryBackend',
-    'bootstrap3',
 ]
 
 MIDDLEWARE_CLASSES = [
