@@ -66,5 +66,21 @@ def logout(request):
 def main(request):
 	return render(request, MAIN_TEMPLATE, {})
 
+"""
+This sounds a bit dumb... but it should theoretically work.
+I could perform a query to a database here, and store that
+information into a dictionary. Then do json.dumps(data) to
+pass it to the html page. And then use js to display the charts
+using Chart.js's API.
+
+I guess we'll have a utilities.py, which will fetch data from the database.
+I'll call that function and do json.dump(data).
+
+http://stackoverflow.com/questions/34777794/django-show-graphs-with-chartjs
+http://stackoverflow.com/questions/6467812/how-to-return-a-dictionary-in-python-django-and-view-it-in-javascript
+
+How do I update the chart if the user presses the reload/refresh button though?
+I guess something similar to the login thing??
+"""
 def stats(request):
 	return render(request, STATS_TEMPLATE, {})

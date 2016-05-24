@@ -7,10 +7,10 @@
 /* ---------- http://weloveiconfonts.com/ ---------- */
 /* icons */
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
-/* ---------- ERIC MEYER'S RESET CSS ---------- */
-/* ---------- http://meyerweb.com/eric/tools/css/reset/ ---------- */
+
 /* login stuff */
 @import "reset.css";
+
 /* ---------- FONTAWESOME ---------- */
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;

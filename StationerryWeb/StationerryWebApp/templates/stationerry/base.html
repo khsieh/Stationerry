@@ -38,13 +38,16 @@
 
             <div id="navbar" class="navbar-collapse collapse">
 
-              <ul class="nav nav-pills navbar-right">
-                <li role="presentation"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#about">About</a></li>
-                <li role="presentation"><a href="#contact">Contact</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li role="presentation"><a href="#account"><i class="fa fa-user"></i></a></li>
+                <li role="presentation"><a href="#notifications"><i class="fa fa-bell"></i></a></li>
+                <li role="presentation"><a href="#mail"><i class="fa fa-envelope"></i></a></li>
+                <li role="presentation"><a href="#settings"><i class="fa fa-cog"></i></a></li>
 
-                <!-- Drop down -->
-                <li class="dropdown">
+                <li role="presentation"><a href="{% url 'login' %}"><i class="fa fa-sign-out"></i></a></li>
+
+            <!-- Drop down -->
+                <!-- li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 
                   <ul class="dropdown-menu">
@@ -56,12 +59,9 @@
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
                   </ul>
-                </li>
+                </li -->
 
                 <!-- drop down-->
-
-                <li role="presentation"><a href="{% url 'login' %}">Logout</a></li>
-
 
               </ul>
             </div><!--/.nav-collapse -->
@@ -78,11 +78,11 @@
 
                     <!-- <img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects -->
                     <!--a class="link-blue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
-                    {% block link-a %} <a class="link-pink" href="#"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
+                    {% block link-a %} <a class="link-pink" href="#dash"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
                     {% block link-b %} <a class="link-blue" href="{% url 'stats' %}"><i class="fa fa-bar-chart"></i>Statistics</a> {% endblock %}
-                    {% block link-c %} <a class="link-red" href="#"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
-                    {% block link-d %} <a class="link-yellow" href="#"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
-                    {% block link-e %} <a class="link-green" href="#"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
+                    {% block link-c %} <a class="link-red" href="#projects"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
+                    {% block link-d %} <a class="link-yellow" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
+                    {% block link-e %} <a class="link-green" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
 
                     <!--a class="link-green" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a-->
                 </div>
@@ -121,6 +121,10 @@
             });
 
         </script>
+
+        {% endblock %}
+
+        {% block extra-scripts %}
 
         {% endblock %}
 
