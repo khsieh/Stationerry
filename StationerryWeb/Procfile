@@ -1,1 +1,1 @@
-web: gunicorn StationerryWeb.wsgi:application --log-file - 
+web: gunicorn StationerryWeb.wsgi --log-file - 
