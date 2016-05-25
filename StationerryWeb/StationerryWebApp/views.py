@@ -15,6 +15,7 @@ Views are referenced by StationerryWebApp.urls
 LOGIN_URL = '/login/'
 LOGIN_TEMPLATE = 'stationerry/login.html'
 MAIN_TEMPLATE = 'stationerry/base.html'
+DASH_TEMPLATE = 'stationerry/dashboard.html'
 STATS_TEMPLATE = 'stationerry/stats.html'
 
 def foo(request):
@@ -65,6 +66,9 @@ def logout(request):
 # @login_required
 def main(request):
 	return render(request, MAIN_TEMPLATE, {})
+
+def dashboard(request):
+	return render(request, DASH_TEMPLATE, {})
 
 """
 This sounds a bit dumb... but it should theoretically work.

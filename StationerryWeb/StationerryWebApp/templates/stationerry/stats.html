@@ -6,6 +6,8 @@
 
 {% block link-b %} <a class="link-blue selected" href="{% url 'stats' %}"><i class="fa fa-bar-chart"></i>Statistics</a> {% endblock %}
 
+{% block header %} Statistics {% endblock %}
+
 {% block content %}
 <canvas id="myChart" width="400" height="400"></canvas>
 <script src="/static/js/Chart.js"></script>

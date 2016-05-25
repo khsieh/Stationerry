@@ -19,6 +19,8 @@ Teal: #3d485f
 Papaya: #E24E42;
 Peach: #ffe680;
 Salmon: #fa7c92;
+
+-- Purples ---
 Grape: #94618e;
 Amythyst: #685682;
 Stormy: #494e6b;
@@ -28,6 +30,8 @@ Blue: #02558b;
 */
 
 :root{
+    --page-background-color: #f4f4f4;
+
     --content-body-color: #ffffff;
     --content-shadow-color: #698d9d;
 
@@ -45,13 +49,16 @@ Blue: #02558b;
     --sidebar-icon-selected: #ffffff;
 
     --navbar-color: #4484CE;
+    --header-color: #4ABDAC;
+    --header-line-color: #d9d9d9;
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--page-background-color);
     /* background-image: url("../images/stationerybg-light.jpg");
     background-repeat: repeat; */
     width: 100%;
+    overflow-y: scroll;
 }
 
 h1.wailord {
@@ -69,12 +76,26 @@ h1.wailord {
     filter:         drop-shadow(1px 1px 2px #0B3C5D);
 }
 
+.header{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    color: var(--header-color);
+    /* text-align: center; */
+    margin-top: 80px;
+    margin-left: 150px;
+    /* margin-right: 1625px; 
+    background-color: var(--content-body-color); */
+}
+
+hr{
+    border-color: var(--header-line-color);
+    margin: 0px 0 15px 0;
+}
+
 /* The main content */
 .content-box {
     height: 100%;
-    padding-top: 200px;
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 5px;
     margin-left: 150px;
     margin-right: 30px;
 
@@ -83,20 +104,18 @@ h1.wailord {
     border-color: transparent;
     border-radius: 10px;
 
-    /* #99d3df */
-    box-shadow: 0px 0px 3px 1px var(--content-shadow-color);
+    background-color: var(--content-body-color);
+    /* box-shadow: 0px 0px 3px 1px var(--content-shadow-color); */
 }
 
-
 /* The left sidebar */
-
 .sidebar-left {
     font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     top: 0;
     left: 0;
     background-color: var(--sidebar-color); /* sidebar */
-    margin-top: 55px;
+    margin-top: 65px;
     width: 120px;
     height: 100%;
     /* box-shadow: inset -10px 0px 20px -20px #000000; */
@@ -317,7 +336,7 @@ h1.wailord {
 
 /* http://antjanus.com/blog/uncategorized/make-bootstrap-3-theme-proper-way/ */
 .navbar {
-  min-height: 30px;
+  min-height: 40px;
   box-shadow: 0px 0px 11px 2px #0B3C5D;
 }
 

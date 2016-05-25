@@ -1,0 +1,9 @@
+{% extends "stationerry/base.html" %}
+
+{% block extra-styles %} 
+<link rel="stylesheet" href="/static/css/dashboard.css"> 
+{% endblock %}
+
+{% block link-a %} <a class="link-pink selected" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
+
+{% block header %} Dashboard {% endblock %}
