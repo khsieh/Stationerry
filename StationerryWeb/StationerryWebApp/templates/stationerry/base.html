@@ -29,6 +29,14 @@
 
     <body>
 
+        <div class="header">
+            {% block header %}
+            Menu Title
+            {% endblock %}
+        </div>
+
+        <hr> 
+
     <!-- Fixed navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container">
@@ -40,7 +48,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="{% url 'main' %}">Stationerry</a>
+              <a class="navbar-brand" href="{% url 'dashboard' %}">Stationerry</a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
@@ -77,32 +85,25 @@
     	<div>
             <aside class="sidebar-left">
 
-
                 <!-- a class="company-logo" href="#">Logo</a -->
 
                 <div class="sidebar-links">
 
                     <!-- <img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects -->
-                    <!--a class="link-blue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
-                    {% block link-a %} <a class="link-pink" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
-                    {% block link-b %} <a class="link-blue" href="{% url 'stats' %}"><i class="fa fa-bar-chart"></i>Statistics</a> {% endblock %}
-                    {% block link-c %} <a class="link-red" href="#projects"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
-                    {% block link-d %} <a class="link-yellow" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
-                    {% block link-e %} <a class="link-green" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
+                    <!--a class="link-errorslue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
+                    {% block link-dash %} <a class="link-dash" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
+                    {% block link-errors %} <a class="link-errors" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
+                    {% block link-projects %} <a class="link-projects" href="#projects"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
+                    {% block link-todo %} <a class="link-todo" href="#todo"><i class="fa fa-thumb-tack"></i>Todo</a> {% endblock %}
+                    {% block link-temp1 %} <a class="link-temp1" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
+                    {% block link-temp2 %} <a class="link-temp2" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
 
-                    <!--a class="link-green" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a-->
+
+                    <!--a class="link-temp2" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a-->
                 </div>
 
             </aside>
         </div>
-
-        <div class="header">
-            {% block header %}
-            Menu Title
-            {% endblock %}
-        </div>
-
-        <hr>
 
         <div class="content-box">
 

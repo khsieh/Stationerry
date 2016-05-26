@@ -14,7 +14,6 @@ Views are referenced by StationerryWebApp.urls
 
 LOGIN_URL = '/login/'
 LOGIN_TEMPLATE = 'stationerry/login.html'
-MAIN_TEMPLATE = 'stationerry/base.html'
 DASH_TEMPLATE = 'stationerry/dashboard.html'
 STATS_TEMPLATE = 'stationerry/stats.html'
 
@@ -64,9 +63,6 @@ def logout(request):
 
 # This is the main page after the user logs in.
 # @login_required
-def main(request):
-	return render(request, MAIN_TEMPLATE, {})
-
 def dashboard(request):
 	return render(request, DASH_TEMPLATE, {})
 

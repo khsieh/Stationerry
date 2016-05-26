@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="/static/css/stats.css"> 
 {% endblock %}
 
-{% block link-b %} <a class="link-blue selected" href="{% url 'stats' %}"><i class="fa fa-bar-chart"></i>Statistics</a> {% endblock %}
+{% block link-errors %} <a class="link-errorslue selected" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
 
-{% block header %} Statistics {% endblock %}
+{% block header %} Errors {% endblock %}
 
 {% block content %}
 <canvas id="myChart" width="400" height="400"></canvas>

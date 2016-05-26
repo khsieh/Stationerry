@@ -4,6 +4,38 @@
 <link rel="stylesheet" href="/static/css/dashboard.css"> 
 {% endblock %}
 
-{% block link-a %} <a class="link-pink selected" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
+{% block link-dash %} <a class="link-dash selected" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
 
 {% block header %} Dashboard {% endblock %}
+
+{% block content %}
+
+<div class="r1-box1">
+	<div class="r1-box-numbers">1337</div>
+	<div class="r1-box-text">New Errors</div>
+	<div class="r1-box-icons"><span class="glyphicon glyphicon-time"></span></div>
+	<div class="r1-box-line"></div>
+</div>
+
+<div class="r1-box2">
+	<div class="r1-box-numbers">123</div>
+	<div class="r1-box-text">Unique Errors</div>
+	<div class="r1-box-icons"><span class="glyphicon glyphicon-time"></div>
+	<div class="r1-box-line"></div>
+</div>
+
+<div class="r1-box3">
+	<div class="r1-box-numbers">4</div>
+	<div class="r1-box-text">Total Errors</div>
+	<div class="r1-box-icons"><span class="glyphicon glyphicon-time"></div>
+	<div class="r1-box-line"></div>
+</div>
+
+<div class="r1-box4">
+	<div class="r1-box-numbers">0</div>
+	<div class="r1-box-text">Warnings</div>
+	<div class="r1-box-icons"><span class="glyphicon glyphicon-warning-sign"></div>
+	<div class="r1-box-line"></div>
+</div>
+
+{% endblock %}
