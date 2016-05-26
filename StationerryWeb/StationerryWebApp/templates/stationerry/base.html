@@ -89,8 +89,6 @@
 
                 <div class="sidebar-links">
 
-                    <!-- <img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects -->
-                    <!--a class="link-errorslue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
                     {% block link-dash %} <a class="link-dash" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
                     {% block link-errors %} <a class="link-errors" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
                     {% block link-projects %} <a class="link-projects" href="#projects"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
@@ -98,8 +96,6 @@
                     {% block link-temp1 %} <a class="link-temp1" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
                     {% block link-temp2 %} <a class="link-temp2" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
 
-
-                    <!--a class="link-temp2" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a-->
                 </div>
 
             </aside>
@@ -113,8 +109,6 @@
             {% endblock %}
         </div>
         <!-- Latest compiled and minifired Javascript -->
-        <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
-        <!-- script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script -->
 
         {% block scripts %}
         <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
