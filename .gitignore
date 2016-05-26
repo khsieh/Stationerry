@@ -1,0 +1,10 @@
+bin/
+include/
+lib/
+local/
+pip-selfcheck.json
+*~
+\#*
+*.pyc
+.idea/
+.gitignore

@@ -4,27 +4,61 @@
 
 /*
 Colors: 
-Mustard: #E9B000
-Light Blue: #698d9d
-Prussian Blue: #0B3C5D;
-Cerulean: #4484CE;
-Teal: #3d485f
-Papaya: #E24E42;
+-- Yellows -----
+Mustard: #E9B000;
 Gold Leaf: #d9b310;
 Golden: #f9be02;
+
+-- Blues -----
+Light Blue: #698d9d
+Prussian Blue: #0B3C5D;
+Summer Sky: #286da8;
+Cerulean: #4484CE;
+Teal: #3d485f
+
+Papaya: #E24E42;
 Peach: #ffe680;
 Salmon: #fa7c92;
+
+-- Purples ---
+Grape: #94618e;
+Amythyst: #685682;
+Stormy: #494e6b;
+Teal: #056571;
+*Bluebell: #155765;
+Blue: #02558b;
 */
 
-h1 {
-    color: #D2D490;
+:root{
+    --page-background-color: #f4f4f4;
+
+    --content-body-color: #ffffff;
+    --content-shadow-color: #698d9d;
+
+    --sidebar-color: #4484CE;
+    --sidebar-hover-color: #ffffff;
+    --sidebar-selected-color: #02558b;
+    --sidebar-shadow-color: #0B3C5D;
+
+    --sidebar-item-color: #d9d9d9;
+    --sidebar-item-hover: #ffffff;
+    --sidebar-item-selected: #ffffff;
+
+    --sidebar-icon-color: #d9d9d9;
+    --sidebar-icon-hover: #ffffff;
+    --sidebar-icon-selected: #ffffff;
+
+    --navbar-color: #4484CE;
+    --header-color: #4ABDAC;
+    --header-line-color: #d9d9d9;
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--page-background-color);
     /* background-image: url("../images/stationerybg-light.jpg");
     background-repeat: repeat; */
     width: 100%;
+    overflow-y: scroll;
 }
 
 h1.wailord {
@@ -42,32 +76,50 @@ h1.wailord {
     filter:         drop-shadow(1px 1px 2px #0B3C5D);
 }
 
-/* The main content */
-
-.main-content {
-    padding: 250px 200px 200px 390px;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
-    vertical-align: center;
-    text-align: center;
-    padding-left: 190px;
-    margin: 0 0 40px 10px;
+.header{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2em;
+    color: var(--header-color);
+    /* text-align: center; */
+    margin-top: 80px;
+    margin-left: 150px;
+    /* margin-right: 1625px; 
+    background-color: var(--content-body-color); */
 }
 
+hr{
+    border-color: var(--header-line-color);
+    margin: 0px 0 15px 0;
+}
+
+/* The main content */
+.content-box {
+    height: 100%;
+    margin-top: 5px;
+    margin-left: 150px;
+    margin-right: 30px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 10px;
+
+    background-color: var(--content-body-color);
+    /* box-shadow: 0px 0px 3px 1px var(--content-shadow-color); */
+}
 
 /* The left sidebar */
-
 .sidebar-left {
     font-family: Arial, Helvetica, sans-serif;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #4484CE; /* sidebar */
-    margin-top: 55px;
+    background-color: var(--sidebar-color); /* sidebar */
+    margin-top: 65px;
     width: 120px;
     height: 100%;
     /* box-shadow: inset -10px 0px 20px -20px #000000; */
-    box-shadow: 1px 0px 5px 1px #0B3C5D;
+    box-shadow: 1px 0px 5px 1px var(--sidebar-shadow-color);
 }
 
 /*
@@ -93,13 +145,14 @@ h1.wailord {
     /* margin: 20px auto; */
 }
 
+/* Sidebar icons and text default */
 .sidebar-left .sidebar-links a {
     display: block;
     text-decoration: none;
     margin: 0 auto 5px auto;
     padding: 15px 0;
     text-align: center;
-    color:  #d9d9d9; /* sidebox text color */
+    color: var(--sidebar-item-color);; /* sidebox text color */
     font-size: 18px;
     border-left-width: 0px;
     border-left-style: solid;
@@ -109,19 +162,15 @@ h1.wailord {
     transition:background 0.5s;
 }
 
+/* Sidebar text and icons css when hovered */
 .sidebar-left .sidebar-links a:hover {
-    color: #ffffff;
+    color: var(--sidebar-item-hover);
 }
 
-.sidebar-left .sidebar-links a i.fa {
-    display: block;
-    font-size: 35px;
-    margin-bottom: 5px;
-}
-
+/* Sidebar text and icons when selected */
 .sidebar-left .sidebar-links a.selected{
-    background-color: #0B3C5D; /* selected sidebox color */
-    color:  #ffffff;
+    background-color: var(--sidebar-selected-color);
+    color: var(--sidebar-item-selected);
     font-size: 18px;
     cursor: default;
     outline: none;
@@ -135,10 +184,10 @@ h1.wailord {
     position: absolute;
     width: 0; 
     height: 0; 
-    margin-top: 0px;
-    left:120px;
-    border: 30px solid transparent;
-    border-left: 30px solid #0B3C5D;
+    margin-top: 15px;
+    left: 120px;
+    border: 20px solid transparent;
+    border-left: 20px solid var(--sidebar-selected-color);
 
     /*
     -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
@@ -149,43 +198,29 @@ h1.wailord {
     */
 }
 
+/* Sidebar icons css */
+.sidebar-left .sidebar-links a i.fa {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+
 /* Link Colors */
 
+/* Stats icon*/
+/*
 .sidebar-left .sidebar-links a.link-blue {
     border-color: #ffffff;
 }
+*/
 
-/* Icon color */
+/* Stats icon color */
+/*
 .sidebar-left .sidebar-links a.link-blue i.fa {
     color: #ffffff;
 }
-
-.sidebar-left .sidebar-links a.link-red {
-    border-color: #da4545;
-}
-
-/* Icon color */
-.sidebar-left .sidebar-links a.link-red i.fa {
-    color: #ffffff;
-}
-
-.sidebar-left .sidebar-links a.link-yellow {
-    border-color: #d0d237;
-}
-
-/* Icon color */
-.sidebar-left .sidebar-links a.link-yellow i.fa {
-    color: #ffffff;
-}
-
-.sidebar-left .sidebar-links a.link-green {
-    border-color: #86be2e;
-}
-
-/* Icon color */
-.sidebar-left .sidebar-links a.link-green i.fa {
-    color: #ffffff;
-}
+*/
 
 /* Making the sidebar responsive */
 
@@ -232,7 +267,7 @@ h1.wailord {
         margin-top: 0px;
         left:120px;
         border: 30px solid transparent;
-        border-top: 30px solid #0B3C5D;
+        border-top: 30px solid var(--sidebar-selected-color);
 
         /*
         -webkit-filter: drop-shadow(0px 5px 6px rgba(0,0,0,0.25));
@@ -296,14 +331,20 @@ h1.wailord {
 }
 
 /* Nav bar */
+
+/* Navbar top dimensions */
+.container {
+    width: 100%;
+}
+
 /* http://antjanus.com/blog/uncategorized/make-bootstrap-3-theme-proper-way/ */
 .navbar {
-  min-height: 30px;
+  min-height: 40px;
   box-shadow: 0px 0px 11px 2px #0B3C5D;
 }
 
 .navbar-default {
-    background: #4484CE;
+    background: var(--navbar-color);
     /* background-image: url("../images/officesupplies.jpg"); */
     background-position: center;
     border: 0;
@@ -313,6 +354,22 @@ h1.wailord {
 
 .navbar-default .navbar-brand {
     color: #ffffff;
+    outline: none;
+}
+
+
+.nav.navbar-nav.navbar-right {
+    margin-right: 10px;
+}
+
+/* Navbar right links */
+.nav.navbar-nav.navbar-right li a{
+    color: var(--sidebar-icon-color);
+    outline: none;
+}
+
+.nav.navbar-nav.navbar-right li a:hover {
+    color: var(--sidebar-icon-hover);
 }
 
 /*
@@ -323,23 +380,27 @@ h1.wailord {
     padding: 10px;
   }
 }
-*/
 
-/* Navbar right pills */
+.nav.nav-pills.navbar-right {
+    margin-right: 10px;
+}
+
+Navbar right pills
 .nav.nav-pills.navbar-right li {
     background-color: #0B3C5D;
 }
 
-/* Navbar right links */
+Navbar right links
 .nav.nav-pills.navbar-right li a {
     background-color: #0B3C5D;
     color: #ffffff;
     outline: none;
 }
 
-/* Navbar right links hover */
+Navbar right links hover
 .nav.nav-pills.navbar-right li a:hover {
     background-color: #000000;
     color: #ffffff;
     outline: none;
 }
+*/

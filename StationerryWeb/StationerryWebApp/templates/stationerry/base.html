@@ -3,14 +3,28 @@
 <!DOCTYPE html> 
 <html>
     <head>
-        <title>Stationerry</title>
-        <!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"-->
-        <!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" -->
+        <title>{% block title %}Stationerry{% endblock %}</title>
+        <link rel="shortcut icon" href="{%  static 'images/splayer.svg' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+
+        <!-- Allow extra style sheets to go here -->
+        {% block extra-styles %}
+
+        {% endblock %}
+
+        {% block fonts %}
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        {% endblock %}
+
+        {% block extra-fonts %}
+
+        {% endblock %}
+
     </head>
     <body>
 
@@ -25,18 +39,20 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="#">Stationerry</a>
+              <a class="navbar-brand" href="{% url 'main' %}">Stationerry</a>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse">
 
-              <ul class="nav nav-pills navbar-right">
-                <li role="presentation"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#about">About</a></li>
-                <li role="presentation"><a href="#contact">Contact</a></li>
+              <ul class="nav navbar-nav navbar-right">
+                <li role="presentation"><a href="#account"><i class="fa fa-user fa-2x"></i></a></li>
+                <li role="presentation"><a href="#notifications"><i class="fa fa-bell fa-2x"></i></a></li>
+                <li role="presentation"><a href="#mail"><i class="fa fa-envelope fa-2x"></i></a></li>
+                <li role="presentation"><a href="#settings"><i class="fa fa-cog fa-2x"></i></a></li>
+                <li role="presentation"><a href="{% url 'login' %}"><i class="fa fa-sign-out fa-2x"></i></a></li>
 
-                <!-- Drop down -->
-                <li class="dropdown">
+            <!-- Drop down -->
+                <!-- li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
 
                   <ul class="dropdown-menu">
@@ -48,12 +64,9 @@
                     <li><a href="#">Separated link</a></li>
                     <li><a href="#">One more separated link</a></li>
                   </ul>
-                </li>
+                </li -->
 
                 <!-- drop down-->
-
-                <li role="presentation"><a href="{% url 'login' %}">Logout</a></li>
-
 
               </ul>
             </div><!--/.nav-collapse -->
@@ -70,32 +83,45 @@
 
                     <!-- <img src="{% static 'images/stapler.svg' %}" id="stapler"><br>Projects -->
                     <!--a class="link-blue" href="#"><span class="glyphicon glyphicon-stats"></span>Statistics</a-->
-                    <a class="link-blue" href="#"><i class="fa fa-bar-chart"></i>Statistics</a>
-                    <a class="link-red" href="#"><i class="fa fa-paperclip"></i>Projects</a>
-                    <a class="link-yellow" href="#"><i class="fa fa-eraser"></i>Temp</a>
-                    <a class="link-green" href="#"><i class="fa fa-scissors"></i>Temp</a>
+                    {% block link-a %} <a class="link-pink" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
+                    {% block link-b %} <a class="link-blue" href="{% url 'stats' %}"><i class="fa fa-bar-chart"></i>Statistics</a> {% endblock %}
+                    {% block link-c %} <a class="link-red" href="#projects"><i class="fa fa-paperclip"></i>Projects</a> {% endblock %}
+                    {% block link-d %} <a class="link-yellow" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
+                    {% block link-e %} <a class="link-green" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
 
-                    <!--a class="link-green" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a>
+                    <!--a class="link-green" href="#"><span class="glyphicon glyphicon-scissors"></span>Temp</a-->
                 </div>
 
             </aside>
         </div>
 
-        <div class="main-content">
+        <div class="header">
+            {% block header %}
+            Menu Title
+            {% endblock %}
+        </div>
 
+        <hr>
+
+        <div class="content-box">
+
+            {% block content %}
             <h1 class="wailord">Hail Wailord</h1>
             <img src="{% static 'images/leapingwailord.gif' %}">
-
+            {% endblock %}
         </div>
         <!-- Latest compiled and minifired Javascript -->
         <!-- script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
         <!-- script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script -->
+
+        {% block scripts %}
         <script src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         
         <script>
 
+            // Selected effect for sidebar 
             $(function () {
 
                 var links = $('.sidebar-links > a');
@@ -109,5 +135,12 @@
             });
 
         </script>
+
+        {% endblock %}
+
+        {% block extra-scripts %}
+
+        {% endblock %}
+
     </body>
 </html>
