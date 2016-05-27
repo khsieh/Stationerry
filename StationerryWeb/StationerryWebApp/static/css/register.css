@@ -60,11 +60,13 @@ input::-webkit-input-placeholder {
 
 .login-button{
 	margin-top: 5px;
+    outline: none;
 }
 
 .login-register{
 	font-size: 11px;
 	text-align: center;
+    outline: none;
 }
 
 .input-group-addon {
