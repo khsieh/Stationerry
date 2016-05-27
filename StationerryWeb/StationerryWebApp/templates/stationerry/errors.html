@@ -4,34 +4,24 @@
 <link rel="stylesheet" href="/static/css/errors.css"> 
 {% endblock %}
 
-{% block link-errors %} <a class="link-errorslue selected" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
+{% block link-errors %} <a class="link-errors selected" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
 
 {% block header %} Errors {% endblock %}
 
 {% block content %}
-<canvas id="myChart" width="400" height="400"></canvas>
-<script src="/static/js/Chart.js"></script>
-<script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3]
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
 
+<div class="flexsearch">
+        <div class="flexsearch--wrapper">
+            <form class="flexsearch--form" action="#" method="post">
+                <div class="flexsearch--input-wrapper">
+                    <input class="flexsearch--input" type="search" placeholder="search for errors">
+                </div>
+                <input class="flexsearch--submit" type="submit" value="&#10140;"/>
+            </form>
+        </div>
+</div>
+
+<div class="result-box">
+hi
+</div>
 {% endblock %}
