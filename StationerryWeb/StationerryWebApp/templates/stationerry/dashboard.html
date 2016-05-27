@@ -40,4 +40,93 @@
 	</div>
 </div>
 
+<div class="row2">
+	<!-- Line Chart: Time vs Number of Errors -->
+	<div class="r2-box1">
+		<div id="weekly-errors-chart"></div>
+	</div> 
+
+	<!-- Pie Chart: Top 5 Common Errors-->
+	<div class="r2-box2">Pie Chart</div>
+
+</div>
+
+{% endblock %}
+
+{% block extra-scripts %} 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Day', 'Number of Errors'],
+          ['Sun',  54],
+          ['Mon',  3],
+          ['Tue',  13],
+          ['Wed',  22],
+          ['Thur',  5],
+          ['Fri',  1],
+          ['Sat',  0]
+        ]);
+
+        var options = {
+          vAxis: { baselineColor: '#FFFFFF', textStyle:{color: 'white'}, gridlines: {color: 'transparent'}, viewWindow: {min: 0}},
+          hAxis: {textStyle:{color: 'white'}},
+          width: 750,
+          height: 300,
+          series: { 0: {color: 'white'}},
+          lineWidth: 2,
+          backgroundColor: 'none',
+          curveType: 'function',
+          fontName: 'Open Sans',
+          fontSize: 20,
+          fontColor: 'white',
+          pointShape: 'circle',
+          pointSize: 8,
+          legend: { position: 'none' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('weekly-errors-chart'));
+
+        chart.draw(data, options);
+      }
+
+</script>
+<!--
+<script src="/static/js/Chart.js"></script> 
+<script>
+
+	var ctx = document.getElementById("WeeklyErrorsChart");
+	var data = 
+	{
+    	labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    	datasets: [
+        {
+            label: "Daily Errors",
+            backgroundColor: "rgba(255,99,132,0.2)",
+            borderColor: "rgba(255,99,132,1)",
+            borderWidth: 1,
+            scaleFontFamily : "'Open Sans'",
+            /*tension: 0, */
+            hoverBackgroundColor: "rgba(255,99,132,0.4)",
+            hoverBorderColor: "rgba(255,99,132,1)",
+            data: [65, 59, 80, 81, 56, 55, 40],
+        }]
+	};
+
+	var options = {
+		scaleFontColor: "#FFFFFF",
+		scales: {
+			/* yAxes:[{ gridLines: {display: false }}],
+			xAxes: [{ gridLines: {display: false }}] */
+		}
+	};
+
+	var myChart = new Chart(ctx, { type: 'line', data, options});
+
+</script>
+-->
 {% endblock %}

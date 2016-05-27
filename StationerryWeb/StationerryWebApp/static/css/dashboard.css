@@ -35,6 +35,9 @@ Summer-Sky: #286DA8;
 
 	--warning-box-background-color: #66AB8C;
 	--warning-box-hover-color: #627E60;
+
+	--error-over-week-box-background-color: #9c27b0;
+	--top-five-error-box-background-color: #673ab7;
 }
 
 #r1-icons {
@@ -42,27 +45,18 @@ Summer-Sky: #286DA8;
     font-size: 90px;
 }
 
-/*
-.glyphicon.glyphicon-time {
-	margin-top: 20px;
-    font-size: 100px;
+.row1 {
+	float:top;
+	width: auto;
+	height: 200px;
 }
 
-.glyphicon.glyphicon-star-empty {
+.row2 {
+	float: top;
 	margin-top: 20px;
-    font-size: 100px;
+	width: auto;
+	height: 450px;
 }
-
-.glyphicon.glyphicon-globe {
-	margin-top: 20px;
-    font-size: 100px;
-}
-
-.glyphicon.glyphicon-alert {
-	margin-top: 20px;
-    font-size: 85px;
-}
-*/
 
 .r1-box1 {
 	float: left;
@@ -151,4 +145,39 @@ Summer-Sky: #286DA8;
 	margin-top: -130px;
 	border-left: 1px solid white;
 	height: 70%;
+}
+
+.row2 {
+	float: top;
+
+}
+
+/* Line graph */
+.r2-box1 {
+	float: left;
+	margin-right: 20px;
+	font-family: "Open Sans";
+	height: auto;
+	width: auto;
+	color: white;
+	background-color: var(--error-over-week-box-background-color);
+	border-radius: 10px;
+}
+
+/*
+.WeeklyErrorsChart {
+	background-color: blue;
+	border-radius: 10px;
+	padding-bottom: 10px;
+}
+*/
+
+.r2-box2 {
+	float: left;
+	margin-right: 20px;
+	height: 450px;
+	width: 750px;
+	color: white;
+	background-color: var(--top-five-error-box-background-color);
+	border-radius: 10px;
 }
