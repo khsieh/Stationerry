@@ -6,9 +6,9 @@
         <title>Stationerry</title>
         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+        <!--link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}"-->
         <link rel="stylesheet" href="{% static 'css/login.css' %}">
-        <link rel="shortcut icon" href="{%  static 'images/favicon.ico' %}">
+        <link rel="shortcut icon" href="{%  static 'images/stapler.svg' %}">
     </head>
 
     <body>
@@ -37,7 +37,7 @@
 	        <p>
 		        Not a member? <a href="{% url 'dashboard' %}" class="blue" id="signup">Sign up now</a><span class="fontawesome-arrow-right"></span>
 		        <br><br>
-		        protip: Click on 'Sign up now' to go to the main page :)
+		        <a href="{% url 'register' %}" class="blue" id="signup2">Register now (the real one)</a>
 	        </p>
 
 	      </div> <!-- end login -->

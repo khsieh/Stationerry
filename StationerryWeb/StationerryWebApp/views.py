@@ -16,6 +16,7 @@ LOGIN_URL = '/login/'
 LOGIN_TEMPLATE = 'stationerry/login.html'
 DASH_TEMPLATE = 'stationerry/dashboard.html'
 STATS_TEMPLATE = 'stationerry/stats.html'
+REGISTER_TEMPLATE = 'stationerry/register.html'
 
 def foo(request):
     return HttpResponse("Hello World!")
@@ -23,6 +24,10 @@ def foo(request):
 # This is the homepage
 def home(request):
 	return render(request, LOGIN_TEMPLATE, {})
+
+# This is for the user sign up / registration
+def register(request):
+	return render(request, REGISTER_TEMPLATE, {})
 
 # This is the user authentication 
 def userLogin(request):

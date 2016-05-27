@@ -71,9 +71,9 @@ p {
 }
 
 .container-outside {
-  position: absolute;
-  left: 40%;
-  top: 40%;
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right:auto;
   width: 310px;
   height: 320px;
   background-color:rgba(0, 0, 0, 0.5);

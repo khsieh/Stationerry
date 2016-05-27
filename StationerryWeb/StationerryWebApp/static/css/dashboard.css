@@ -25,7 +25,7 @@ Summer-Sky: #286DA8;
 
 :root{
 	--new-err-box-background-color: #FF3B3F;
-	--new-err-box-hover-color: #E24E42;
+	--new-err-box-hover-color: #FF1a1a;
 
 	--uniq-err-box-background-color: #fa7c92;
 	--uniq-err-box-hover-color: #EC576B;
@@ -37,6 +37,8 @@ Summer-Sky: #286DA8;
 	--warning-box-hover-color: #627E60;
 
 	--error-over-week-box-background-color: #9c27b0;
+	--error-over-week-box-hover-color: #5E2D79;
+
 	--top-five-error-box-background-color: #673ab7;
 }
 
@@ -164,13 +166,9 @@ Summer-Sky: #286DA8;
 	border-radius: 10px;
 }
 
-/*
-.WeeklyErrorsChart {
-	background-color: blue;
-	border-radius: 10px;
-	padding-bottom: 10px;
+.r2-box1:hover {
+	background-color: var(--error-over-week-box-hover-color);
 }
-*/
 
 .r2-box2 {
 	float: left;
