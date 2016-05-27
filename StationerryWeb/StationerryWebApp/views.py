@@ -15,7 +15,7 @@ Views are referenced by StationerryWebApp.urls
 LOGIN_URL = '/login/'
 LOGIN_TEMPLATE = 'stationerry/login.html'
 DASH_TEMPLATE = 'stationerry/dashboard.html'
-STATS_TEMPLATE = 'stationerry/stats.html'
+ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
 
 def foo(request):
@@ -87,5 +87,5 @@ http://stackoverflow.com/questions/6467812/how-to-return-a-dictionary-in-python-
 How do I update the chart if the user presses the reload/refresh button though?
 I guess something similar to the login thing??
 """
-def stats(request):
-	return render(request, STATS_TEMPLATE, {})
+def errors(request):
+	return render(request, ERRORS_TEMPLATE, {})
