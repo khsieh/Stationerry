@@ -13,6 +13,7 @@
 <div class="flexsearch">
         <div class="flexsearch--wrapper">
             <form class="flexsearch--form" action="#" method="post">
+                {% csrf_token %}
                 <div class="flexsearch--input-wrapper">
                     <input class="flexsearch--input" type="search" placeholder="search for errors">
                 </div>

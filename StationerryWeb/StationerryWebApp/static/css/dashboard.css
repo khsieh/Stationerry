@@ -39,7 +39,8 @@ Summer-Sky: #286DA8;
 	--error-over-week-box-background-color: #9c27b0;
 	--error-over-week-box-hover-color: #5E2D79;
 
-	--top-five-error-box-background-color: #673ab7;
+	--top-five-error-box-background-color: #37474f;
+	--top-five-error-box-hover-color: #263238;
 }
 
 #r1-icons {
@@ -170,12 +171,39 @@ Summer-Sky: #286DA8;
 	background-color: var(--error-over-week-box-hover-color);
 }
 
+#weekly-errors-chart {
+	margin-top: -30px;
+}
+
+.r2-box1-text {
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 10px;
+	font-size: 25px;
+	color: white;
+	font-family: "Open Sans";
+	text-align: center;
+	height: auto;
+}
+
+
 .r2-box2 {
 	float: left;
 	margin-right: 20px;
-	height: 450px;
-	width: 750px;
+	width: 470px;
+	height: 310px;
 	color: white;
 	background-color: var(--top-five-error-box-background-color);
 	border-radius: 10px;
+}
+
+.r2-box2:hover {
+	background-color: var(--top-five-error-box-hover-color);
+}
+
+#top5-chart {
+	margin-top: -70px;
+	margin-left: -115px;
+	width: 700px;
+	height: 400px;
 }
