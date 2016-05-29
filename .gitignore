@@ -8,3 +8,6 @@ pip-selfcheck.json
 *.pyc
 .idea/
 .gitignore
+venv
+staticfiles
+.env
