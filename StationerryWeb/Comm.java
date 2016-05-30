@@ -11,7 +11,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Comm {
-    private static String serverRoot = "http://127.0.0.1:8000/backend/";
+    private static String serverRoot = "http://stationerry.pythonanywhere.com/backend/";
+    private static String debugRoot = "http://127.0.0.1:8000/backend/";
     private static final int commVersion = 1;
 
     private int lastStatus;

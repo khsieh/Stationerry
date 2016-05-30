@@ -11,6 +11,9 @@ from django.http import HttpResponse
 import django.core.exceptions
 from models import App
 from models import BugReport
+import parser_func as pf
+
+from django.template import loader
 
 def index(request) :
     return HttpResponse("You shouldn't be here.")
@@ -43,3 +46,14 @@ def insertReportIntoDB(AppName, AppVersion, iPlatform, ReportType, Report) :
     except:
         return HttpResponse("No entry for that app version exist.")
         
+
+def testBench(request) :
+    print pf.parse("apphello", "3.2.1", "0")
+
+    grab_list = pf.parse("apphello", "3.2.1", "0")
+    grab_dict = {'list' : grab_list}
+    json_format = json.dumps(grab_dict)
+    print "json format: "
+    print json_format
+    t = loader.get_template('/home/kawaii5/Stationerry/StationerryWeb/StationerryWebApp/templates/stationerry/testbench.html')
+    return HttpResponse(t.render(grab_dict, request), content_type="application/json")
