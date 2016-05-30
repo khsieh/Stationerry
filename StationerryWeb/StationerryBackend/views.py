@@ -74,3 +74,6 @@ def testBench2(request) :
 
 def testBench3(request) :
     return HttpResponse(util.getParseHTML("apphello", "3.2.1", "0", ""))
+
+def testBench4(request) :
+    return HttpResponse(util.findError("exception"))

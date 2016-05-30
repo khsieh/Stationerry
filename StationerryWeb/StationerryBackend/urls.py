@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^$', views.index, name = 'index'),    
     url(r'^sendreport$', views.recievereport, name = 'send'),
     url(r'^getreport$', views.getquery, name = 'get'),
-    url(r'^testbench$', views.testBench3, name = 'test'),
+    url(r'^testbench$', views.testBench4, name = 'test'),
 ]
 
