@@ -27,7 +27,8 @@ def home(request):
 
 # This is for the user sign up / registration
 def register(request):
-	return render(request, REGISTER_TEMPLATE, {})
+    print "hello register complete"
+    return render(request, REGISTER_TEMPLATE, {})
 
 # This is the user authentication 
 def userLogin(request):

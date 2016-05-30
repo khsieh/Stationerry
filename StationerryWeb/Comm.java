@@ -38,7 +38,7 @@ public class Comm {
 
     public static void main(String[] args) {
         Comm c = new Comm();
-        
+         
         c.apiRequest("sendreport", "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
     }
 

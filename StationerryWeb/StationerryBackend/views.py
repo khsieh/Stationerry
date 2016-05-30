@@ -11,7 +11,7 @@ from django.http import HttpResponse
 import django.core.exceptions
 from models import App
 from models import BugReport
-import parser_func as pf
+import utilities as util
 
 from django.template import loader
 
@@ -43,17 +43,34 @@ def insertReportIntoDB(AppName, AppVersion, iPlatform, ReportType, Report) :
         NewReport.App_Name = TargetAppVersion
         NewReport.save()
         return HttpResponse("Success")
-    except:
+    except :
         return HttpResponse("No entry for that app version exist.")
         
 
 def testBench(request) :
-    print pf.parse("apphello", "3.2.1", "0")
+    grab_list = []
+    try : 
+        print util.parse("apphello", "3.2.1", "0")
+        grab_list = util.parse("apphello", "3.2.1", "0")
+        grab_list = ["foo", "bar", "baz"]
+    except :
+        return HttpResponse("No lines found")
+    lineString = ""
+    for line in grab_list :
+        lineString = lineString + line + "<br>"
+    #t = loader.get_template('/home/kawaii5/Stationerry/StationerryWeb/StationerryWebApp/templates/stationerry/testbench.html')
+    return HttpResponse(lineString)
 
-    grab_list = pf.parse("apphello", "3.2.1", "0")
-    grab_dict = {'list' : grab_list}
-    json_format = json.dumps(grab_dict)
-    print "json format: "
-    print json_format
+def testBench2(request) :
+    grab_dict = {}
+    user = 0
+    try :
+        print util.findUser("user")
+        user= util.findUser("user")
+    except :
+        pass
     t = loader.get_template('/home/kawaii5/Stationerry/StationerryWeb/StationerryWebApp/templates/stationerry/testbench.html')
-    return HttpResponse(t.render(grab_dict, request), content_type="application/json")
+    return HttpResponse(user.User_Name)
+
+def testBench3(request) :
+    return HttpResponse(util.getParseHTML("apphello", "3.2.1", "0", ""))
