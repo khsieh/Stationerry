@@ -26,6 +26,18 @@
        box-sizing: border-box;
 }
 
+hr{
+  width: 10%;
+  border-color: black;
+}
+
+h1.title { 
+  font-size: 50px;
+  font-family: 'Passion One', cursive; 
+  font-weight: 400; 
+  color: black;
+  padding-bottom: 15px;
+}
 
 body {
   background: #ffffff url("../images/office.jpg") no-repeat fixed;
@@ -38,12 +50,16 @@ body {
 }
 
 a {
-  color: #eee;
+  color: #328CC1; 
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.fontawesome-arrow-right {
+  color: #328CC1;
 }
 
 input {
@@ -71,33 +87,37 @@ p {
 }
 
 .container-outside {
-  position: absolute;
-  left: 40%;
-  top: 40%;
+  margin-top: 15%;
+  margin-left: auto;
+  margin-right:auto;
+  width: 1170px;
+}
+
+.container {
+  margin-top: 30px;
+  padding-top: 20px;
   width: 310px;
   height: 320px;
-  background-color:rgba(0, 0, 0, 0.5);
+  background-color: white;
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
-.container {
-  padding-top: 20px;
-}
-
 
 /* ---------- LOGIN ---------- */
 #login {
   width: 280px;
-  color: #99d3df;
+  color: black; /* Not a member text? */
 }
 
 #login form span {
-  background-color: #363b41;
+  background-color: #e0e0e0;
   border-radius: 3px 0px 0px 3px;
-  color: #606468;
+  border-color: #328CC1;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, .8);
+  color: #606468; /* icon */
   display: block;
   float: left;
   height: 50px;
@@ -111,9 +131,11 @@ p {
 }
 
 #login form input[type="text"], input[type="password"] {
-  background-color: #3b4148;
+  background-color: white;
+  border-color: #328CC1;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
   border-radius: 0px 3px 3px 0px;
-  color: #606468;
+  color: #939393; /* input */
   margin-bottom: 1em;
   padding: 0 16px;
   width: 230px;
@@ -124,7 +146,7 @@ p {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   background-color: #ea4c88;
-  color: #eee;
+  color: #eee; /* submit */
   font-weight: bold;
   margin-bottom: 2em;
   text-transform: uppercase;
@@ -145,10 +167,12 @@ p {
 
 #signup 
 {
-  color: #ffe680;
+  color: #4484CE;
+  font-weight: ;
 }
 
 #signup:hover
 {
-  color: #ffffff;
+  color: blue;
+  text-decoration: underline;
 }

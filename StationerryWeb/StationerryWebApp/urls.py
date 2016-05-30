@@ -32,13 +32,19 @@ Let's break it down piece by piece to see what we are doing here:
 
 """
 
+"""
+Some guy used but idk what it does.
+from django.contrib import admin
+admin.autodiscover()
+
+"""
 from django.conf.urls import url
 from . import views
 
 urlpatterns = [
     url(r'^$', views.userLogin, name='home'),
     url(r'^login/$', views.userLogin, name='login'),
-    url(r'^main/$', views.main, name='main'),
-    url(r'^stats/$', views.stats, name='stats'),
+    url(r'^register/$', views.register, name='register'),
+    url(r'^errors/$', views.errors, name='errors'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
 ]

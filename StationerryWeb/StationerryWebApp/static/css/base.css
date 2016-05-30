@@ -1,4 +1,3 @@
-@import url ("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600");
 @import "../less/variables.less";
 @import "../less/mixins.less";
 
@@ -49,6 +48,8 @@ Blue: #02558b;
     --sidebar-icon-selected: #ffffff;
 
     --navbar-color: #4484CE;
+    --navbar-brand-color: #ffe680;
+
     --header-color: #4ABDAC;
     --header-line-color: #d9d9d9;
 }
@@ -104,7 +105,7 @@ hr{
     border-color: transparent;
     border-radius: 10px;
 
-    background-color: var(--content-body-color);
+    /* background-color: var(--content-body-color); */
     /* box-shadow: 0px 0px 3px 1px var(--content-shadow-color); */
 }
 
@@ -210,14 +211,14 @@ hr{
 
 /* Stats icon*/
 /*
-.sidebar-left .sidebar-links a.link-blue {
+.sidebar-left .sidebar-links a.link-errorslue {
     border-color: #ffffff;
 }
 */
 
 /* Stats icon color */
 /*
-.sidebar-left .sidebar-links a.link-blue i.fa {
+.sidebar-left .sidebar-links a.link-errorslue i.fa {
     color: #ffffff;
 }
 */
@@ -357,6 +358,10 @@ hr{
     outline: none;
 }
 
+.navbar-default .navbar-brand:hover {
+    color: var(--navbar-brand-color);
+    outline: none;
+}
 
 .nav.navbar-nav.navbar-right {
     margin-right: 10px;
