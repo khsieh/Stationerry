@@ -32,6 +32,12 @@ Let's break it down piece by piece to see what we are doing here:
 
 """
 
+"""
+Some guy used but idk what it does.
+from django.contrib import admin
+admin.autodiscover()
+
+"""
 from django.conf.urls import url
 from . import views
 
