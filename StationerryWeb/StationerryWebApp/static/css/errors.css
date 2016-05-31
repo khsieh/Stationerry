@@ -14,6 +14,10 @@
 	margin-right: auto ;
 }
 
+h2 {
+	text-align: center;
+}
+
 .flexsearch--wrapper {
 	height: auto;
 	width: auto;
