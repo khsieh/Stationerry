@@ -248,6 +248,7 @@ hr{
 
     .sidebar-left .sidebar-links a {
         display: inline-block;
+        
         margin: 0;
         padding: 0;
         /*
@@ -318,6 +319,8 @@ hr{
 
 /*  Removing margins and paddings from the body, so that
     the sidebar takes the full height of the page */
+
+
 
 .arrow-right {
     width: 0; 

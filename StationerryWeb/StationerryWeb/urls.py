@@ -21,5 +21,5 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     # url(r'StationerryWebApp/$', foo),
     url(r'', include ('StationerryWebApp.urls')),
-
+    url(r'^backend/', include ('StationerryBackend.urls')),
 ]
