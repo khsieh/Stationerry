@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 # reference the Users model for user registration
-from .forms import UserForm
+# from .forms import UserForm
 
 """ 
 Create your views here.
