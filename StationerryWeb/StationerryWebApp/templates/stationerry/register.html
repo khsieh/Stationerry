@@ -25,14 +25,15 @@
 
 	            <!-- http://stackoverflow.com/questions/5827590/css-styling-in-django-forms -->
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
+					<!--form id="user-form" method="post" action="#"-->
+					<form id="user-form">
+						{% csrf_token %}
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="name" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
 								</div>
 							</div>
 						</div>
@@ -42,7 +43,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
 								</div>
 							</div>
 						</div>
@@ -52,7 +53,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+									<input type="username" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
 								</div>
 							</div>
 						</div>
@@ -78,7 +79,7 @@
 						</div-->
 
 						<div class="form-group">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register">
 						</div>
 						<div class="login-register">
 				            <a href="{% url 'login' %}">Login</a>
@@ -88,6 +89,27 @@
 			</div>
 		</div>
 
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="{% static 'js/jquery-2.2.3.min.js' %}"></script>	
+		<script type="text/javascript">
+			// Please work ;__;
+			$(document).on('submit', '#user-form', function(e) {
+				e.preventDefault();
+
+				$.ajax({
+					type:'POST',
+					url: '/register/',
+					data: {
+						name: $('#name').val(),
+						email: $('#email').val(),
+						username: $('#username').val(),
+						password: $('#password').val(),
+						csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+					},
+					success: function() {
+						alert("Successfully registered!");
+					}
+				});
+			});
+		</script> 
 	</body>
 </html>

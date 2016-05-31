@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 # reference the Users model for user registration
-# from .forms import UserForm
+from .models import Users
 
 """ 
 Create your views here.
@@ -30,7 +30,23 @@ def home(request):
 
 # This is for the user sign up / registration
 def register(request):
-    print "hello register complete"
+    if request.method == 'POST':
+    	name = request.POST['name']
+    	email = request.POST['email']
+    	username = request.POST['username']
+    	password = request.POST['password']
+
+    	Users.objects.create (
+    		Real_Name = name,
+    		User_Name = username,
+    		Password = password,
+    		Email = email
+    	)
+
+    	return HttpResponse('New user created.')
+
+
+
     return render(request, REGISTER_TEMPLATE, {})
 
 # This is the user authentication 
