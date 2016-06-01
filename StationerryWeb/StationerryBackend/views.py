@@ -69,11 +69,11 @@ def testBench2(request) :
         user= util.findUser("user")
     except :
         pass
-    t = loader.get_template('/home/kawaii5/Stationerry/StationerryWeb/StationerryWebApp/templates/stationerry/testbench.html')
+    t = loader.get_template('/home/kevhsieh/Stationerry/StationerryWeb/StationerryWebApp/templates/stationerry/testbench.html')
     return HttpResponse(user.User_Name)
 
 def testBench3(request) :
     return HttpResponse(util.getParseHTML("apphello", "3.2.1", "0", ""))
 
 def testBench4(request) :
-    return HttpResponse(util.findError("exception"))
+    return HttpResponse(util.findError("apphello"))
