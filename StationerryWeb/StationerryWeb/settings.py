@@ -122,4 +122,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTHENTICATION_BACKENDS = ( 'StationerryBackend.custom_authen.CustomBackend', 'django.contrib.auth.backends.ModelBackend')
