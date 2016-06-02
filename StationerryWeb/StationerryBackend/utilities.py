@@ -30,7 +30,8 @@ def parse(AppName, AppVersion, AppPlatform, SearchString) :
 def findUser(username) :
     user = 0
     try :
-        user = m.Users.objects.get(User_Name=username)
+        #user = m.Users.objects.get(User_Name=username)
+        pass
     except :
         user = 0
     return user
@@ -75,4 +76,25 @@ def findError(SearchString) :
     return matchedlines
     
 
-
+def getAllErrors(errorString) :
+    logList = []
+    reportSet = m.BugReport.objects.all()
+    for report in reportSet :
+        for line in report.Error_Message :
+            if re.search(errorString, line) :
+                tempDict = {}
+                tempDict['time'] = str(report.Time.month) + " " + str(report.Time.day) + " " + str(report.Time.year) + " " + \
+                                   str(report.Time.hour) + " " + str(report.Time.minute) + " " + str(report.Time.second) + " " + \
+                                   str(report.Time.mircosecond)
+                tempDict['error_type'] = report.Error_Type
+                tempDict['error_msg'] = report.Error_Message
+                tempDict['status'] = report.Status
+                tempDict['device_model'] = report.Device_Model
+                app = m.App.objects.get(id=report.App_Name_id)
+                tempDict['app_name'] = app.App_Name
+                tempDict['app_version'] = app.App_Version
+                tempDict['device_os'] = app.Platform
+                logList.append(tempDict)
+                break
+    return logList
+    
