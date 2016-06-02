@@ -7,21 +7,11 @@ from django.contrib.auth.models import User
 # Django will give each model an unique ID as a primary key
 # when we do not specify one. (^_^)
 
-class Users(models.Model) :
-    Real_Name = models.TextField()
-    User_Name = models.TextField(primary_key=True)
-    Password = models.TextField()
-    Email = models.TextField()
-    
-    def __unicode__(self) :
-        return self.User_Name
-
 # Defines for Django - makes schema for app - set the database
 class App(models.Model) :
     App_Name = models.TextField()
     App_Version = models.TextField()
     Platform = models.TextField()
-    User_Name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='unused_owns')
     username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owns')
 
     def __unicode__(self) :
@@ -34,6 +24,8 @@ class BugReport(models.Model) :
     Error_Type = models.TextField()
     Error_Message = models.TextField()
     Time = models.DateTimeField(auto_now=True)
+    Status = models.TextField()
+    Device_Model = models.TextField()
     App_Name = models.ForeignKey(App, on_delete=models.CASCADE, related_name='Name')
 
     def __unicode__(self) :
