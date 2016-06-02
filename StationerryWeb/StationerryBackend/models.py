@@ -19,7 +19,7 @@ class App(models.Model) :
     App_Name = models.TextField()
     App_Version = models.TextField()
     Platform = models.TextField()
-    App_Name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='Name')
+    User_Name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='Name')
 
     def __unicode__(self) :
         return self.App_Name + " " + self.App_Version
