@@ -9,6 +9,9 @@ from django.contrib.auth.decorators import login_required
 
 # reference the Users model for user registration
 from .models import Users
+from django.contrib.auth.models import User
+
+from custom_authen import CustomBackend
 
 """ 
 Create your views here.
@@ -26,24 +29,24 @@ def foo(request):
 
 # This is the homepage
 def home(request):
-	return render(request, LOGIN_TEMPLATE, {})
+    return render(request, LOGIN_TEMPLATE, {})
 
 # This is for the user sign up / registration
 def register(request):
     if request.method == 'POST':
-    	name = request.POST['name']
-    	email = request.POST['email']
-    	username = request.POST['username']
-    	password = request.POST['password']
+        name = request.POST['name']
+        email = request.POST['email']
+        username = request.POST['username']
+        password = request.POST['password']
 
-    	Users.objects.create (
-    		Real_Name = name,
-    		User_Name = username,
-    		Password = password,
-    		Email = email
-    	)
+    	User.objects.create (
+            first_name = name,
+            username = username,
+            password = password,
+            email = email
+        )
 
-    	return HttpResponse('New user created.')
+        return HttpResponse('New user created.')
 
 
 
@@ -51,50 +54,44 @@ def register(request):
 
 # This is the user authentication 
 def userLogin(request):
-	# References: 
-	# https://www.youtube.com/watch?v=yTK_Kx1Qoqcs
+    # References: 
+    # https://www.youtube.com/watch?v=yTK_Kx1Qoqcs
 
-	if request.method == 'POST':
-		username = request.POST['username']
-		password = request.POST['password']
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
 		#for e in Users.objects.all():
 		#	print (e.User_Name + ' ' + e.Password)
 
-		print username
-		print password
+        user = authenticate(username=username, password=password)
 
-		user = authenticate(username=username, password=password)
-		print 'User: ' + user
+        # check if user is in our userbase
+        if user is not None:
+            # in the Django admin thingy, there's a tick mark for (in)activeness
+            # if user is inactive, can't log in
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect("/dashboard/")
 
-		# check if user is in our userbase
-		if user is not None:
-			print 'wtf!'
-			# in the Django admin thingy, there's a tick mark for (in)activeness
-			# if user is inactive, can't log in
-			if user.is_active:
-				login(request, user)
-				print 'log in?'
-				return HttpResponseRedirect("/dashboard/")
+            else:
+                return HttpResponse("Inactive user.")
 
-			else:
-				return HttpResponse("Inactive user.")
+        else:
+            return HttpResponseRedirect(LOGIN_URL)
 
-		else:
-			return HttpResponseRedirect(LOGIN_URL)
-
-	# first param is the request, second is the template, third is a variable to be passed to template
-	# return render(request, 'stationerry/login.html', {'redirect_to': next})
-	return render(request, LOGIN_TEMPLATE, {})
+    # first param is the request, second is the template, third is a variable to be passed to template
+    # return render(request, 'stationerry/login.html', {'redirect_to': next})
+    return render(request, LOGIN_TEMPLATE, {})
 
 def logout(request):
-	# logout(request)
-	return HttpResponseRedirect(LOGIN_URL)
+    logout(request)
+    return HttpResponseRedirect(LOGIN_URL)
 
 # This is the main page after the user logs in.
 # @login_required
 def dashboard(request):
-	return render(request, DASH_TEMPLATE, {})
+    return render(request, DASH_TEMPLATE, {})
 
 """
 This sounds a bit dumb... but it should theoretically work.
@@ -113,4 +110,4 @@ How do I update the chart if the user presses the reload/refresh button though?
 I guess something similar to the login thing??
 """
 def errors(request):
-	return render(request, ERRORS_TEMPLATE, {})
+    return render(request, ERRORS_TEMPLATE, {})
