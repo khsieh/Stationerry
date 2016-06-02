@@ -8,8 +8,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 # reference the Users model for user registration
-from .models import Users
 from django.contrib.auth.models import User
+
+# import utilities.py
+from StationerryBackend.utilities import *
 
 """ 
 Create your views here.
@@ -21,6 +23,8 @@ LOGIN_TEMPLATE = 'stationerry/login.html'
 DASH_TEMPLATE = 'stationerry/dashboard.html'
 ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
+
+currUser = None
 
 def foo(request):
     return HttpResponse("Hello World!")
@@ -52,8 +56,7 @@ def register(request):
 
 # This is the user authentication 
 def userLogin(request):
-    # References: 
-    # https://www.youtube.com/watch?v=yTK_Kx1Qoqcs
+    errMessage = None
 
     if request.method == 'POST':
         username = request.POST['username']
@@ -69,20 +72,22 @@ def userLogin(request):
             # in the Django admin thingy, there's a tick mark for (in)activeness
             # if user is inactive, can't log in
             if user.is_active:
+                currUser = user
                 login(request, user)
                 return HttpResponseRedirect("/dashboard/")
 
             else:
-                return HttpResponse("Inactive user.")
+                errMessage = "Your account is deactivated."
 
         else:
-            return HttpResponseRedirect(LOGIN_URL)
+            errMessage = "Invalid username or password."
 
     # first param is the request, second is the template, third is a variable to be passed to template
     # return render(request, 'stationerry/login.html', {'redirect_to': next})
-    return render(request, LOGIN_TEMPLATE, {})
+    return render(request, LOGIN_TEMPLATE, {"errMessage":errMessage})
 
 def logout(request):
+    currUser = None
     logout(request)
     return HttpResponseRedirect(LOGIN_URL)
 
@@ -92,31 +97,32 @@ def dashboard(request):
     return render(request, DASH_TEMPLATE, {})
 
 """
-This sounds a bit dumb... but it should theoretically work.
-I could perform a query to a database here, and store that
-information into a dictionary. Then do json.dumps(data) to
-pass it to the html page. And then use js to display the charts
-using Chart.js's API.
-
-I guess we'll have a utilities.py, which will fetch data from the database.
-I'll call that function and do json.dump(data).
-
-http://stackoverflow.com/questions/34777794/django-show-graphs-with-chartjs
-http://stackoverflow.com/questions/6467812/how-to-return-a-dictionary-in-python-django-and-view-it-in-javascript
-
-How do I update the chart if the user presses the reload/refresh button though?
-I guess something similar to the login thing??
+http://stackoverflow.com/questions/22108082/how-to-pass-a-list-from-a-view-to-template-in-django
+http://stackoverflow.com/questions/8949834/django-how-do-i-iterate-through-a-list-of-dictionaries-to-concatenate-values-f
 """
 @login_required
 def errors(request):
     # obtain the thingy the user typed in the search bar
+    errorList = []
+    searchQuery = ""
+    hideResults = True
+
     if 'q' in request.GET:
         if request.GET['q'] == '':
-            print 'Nothing entered. wtf' 
+            print 'ERRORS.HTML: Nothing was entered.' 
+            hideResults = True
         else:
-            print 'You searched for ' + request.GET['q']
+            print 'ERRORS.HTML: You searched for ' + request.GET['q']
+            book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}
+            book2 = {'title':'Flying Pig', 'author':'Piggie', 'year': '2016'}
+            errorList.append(book1)
+            errorList.append(book2) 
+            hideResults = False
+            searchQuery = request.GET['q']
 
+    """
     else:
-        print 'wtf?'
+        print 'ERRORS.HTML: Invalid request. Ignoring.'
+    """
 
-    return render(request, ERRORS_TEMPLATE, {})
+    return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})

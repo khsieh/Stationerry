@@ -13,7 +13,6 @@
 <div class="flexsearch">
         <div class="flexsearch--wrapper">
             <form class="flexsearch--form" action="{% url 'errors' %}" method="get">
-                {% csrf_token %}
                 <div class="flexsearch--input-wrapper">
                     <input class="flexsearch--input" type="search" name="q" placeholder="search for errors">
                 </div>
@@ -22,40 +21,38 @@
         </div>
 </div>
 
+{% if hideResults == False %}
 <div class="result-box">
- <h2>Results for 'search criteria'</h2>
+ <h2>Results for '{{searchQuery}}'</h2>
           
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>Time</th>
         <th>Error Type</th>
         <th>Error Message</th>
-        <th>Source</th>
+        <th>Application</th>
         <th>OS</th>
         <th>Device Model</th>
-        <th>Time</th>
+        <th>Status</th>
       </tr>
     </thead>
 
     <!-- http://stackoverflow.com/questions/7287027/displaying-a-table-in-django-from-database -->
     <tbody>
+
+      {% for error in errorList %}
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>{{error.title}}</td>
+        <td>{{error.author}}</td>
+        <td>{{error.year}}</td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      {% endfor %}
+
     </tbody>
   </table>
 </div>
+
+{% endif %}
 </div>
 {% endblock %}

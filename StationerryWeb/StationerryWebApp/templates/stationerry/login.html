@@ -23,6 +23,12 @@
 
 	      <div id="login">
 
+	      	<div id="login-error">
+	      		{% if errMessage != None %}
+	      		{{ errMessage }}
+	      		{% endif %}
+	      	</div>
+
 	        <form method="post" action="{% url 'login' %}">
 
 	        	<!-- https://docs.djangoproject.com/en/dev/ref/csrf/ -->
@@ -39,9 +45,7 @@
 	        </form>
 
 	        <p>
-		        Not a member? <a href="{% url 'dashboard' %}" class="blue" id="signup">Sign up now</a><span class="fontawesome-arrow-right"></span>
-		        <br><br>
-		        <a href="{% url 'register' %}" class="blue" id="signup2">Register now (the real one)</a>
+		        Not a member? <a href="{% url 'register' %}" class="blue" id="signup">Sign up now</a><span class="fontawesome-arrow-right"></span>
 	        </p>
 
 	      </div> <!-- end login -->
