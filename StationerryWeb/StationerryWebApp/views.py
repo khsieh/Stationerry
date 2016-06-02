@@ -26,9 +26,6 @@ REGISTER_TEMPLATE = 'stationerry/register.html'
 
 currUser = None
 
-def foo(request):
-    return HttpResponse("Hello World!")
-
 # This is the homepage
 def home(request):
     return render(request, LOGIN_TEMPLATE, {})
@@ -41,12 +38,20 @@ def register(request):
         username = request.POST['username']
         password = request.POST['password']
 
+
     	User.objects.create (
             first_name = name,
             username = username,
             password = password,
             email = email
         )
+
+
+        # this fixes the password issue because
+        # set_password(raw_input) hashes the raw input passed in
+        user = User.objects.get(username=username)
+        user.set_password(password)
+        user.save()
 
         return HttpResponse('New user created.')
 
@@ -61,9 +66,6 @@ def userLogin(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-
-		#for e in Users.objects.all():
-		#	print (e.User_Name + ' ' + e.Password)
 
         user = authenticate(username=username, password=password)
 
@@ -83,10 +85,9 @@ def userLogin(request):
             errMessage = "Invalid username or password."
 
     # first param is the request, second is the template, third is a variable to be passed to template
-    # return render(request, 'stationerry/login.html', {'redirect_to': next})
     return render(request, LOGIN_TEMPLATE, {"errMessage":errMessage})
 
-def logout(request):
+def userLogout(request):
     currUser = None
     logout(request)
     return HttpResponseRedirect(LOGIN_URL)
@@ -102,15 +103,17 @@ http://stackoverflow.com/questions/8949834/django-how-do-i-iterate-through-a-lis
 """
 @login_required
 def errors(request):
-    # obtain the thingy the user typed in the search bar
     errorList = []
     searchQuery = ""
     hideResults = True
 
     if 'q' in request.GET:
+        # check if the GET request named 'q' has an empty value
         if request.GET['q'] == '':
             print 'ERRORS.HTML: Nothing was entered.' 
             hideResults = True
+        # if not empty, probabably a valid search query. fetch all matching
+        # results from db in a list of dictionaries
         else:
             print 'ERRORS.HTML: You searched for ' + request.GET['q']
             book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}
@@ -120,9 +123,5 @@ def errors(request):
             hideResults = False
             searchQuery = request.GET['q']
 
-    """
-    else:
-        print 'ERRORS.HTML: Invalid request. Ignoring.'
-    """
 
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})

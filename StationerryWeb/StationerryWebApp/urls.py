@@ -44,6 +44,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.userLogin, name='home'),
     url(r'^login/$', views.userLogin, name='login'),
+    url(r'^logout/$', views.userLogout, name='logout'),
     url(r'^register/$', views.register, name='register'),
     url(r'^errors/$', views.errors, name='errors'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
