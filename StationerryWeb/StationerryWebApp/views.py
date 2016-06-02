@@ -111,6 +111,8 @@ I guess something similar to the login thing??
 def errors(request):
     # obtain the thingy the user typed in the search bar
     if 'q' in request.GET:
+        if request.GET['q'] == '':
+            print 'Nothing entered. wtf' 
         else:
             print 'You searched for ' + request.GET['q']
 
