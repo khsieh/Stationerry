@@ -9,10 +9,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.*;
+import java.io.*;
 
 public class Comm {
     private static String serverRoot = "http://stationerry.pythonanywhere.com/backend/";
-    private static String debugRoot = "http://127.0.0.1:8000/backend/";
+    //private static String serverRoot = "http://127.0.0.1:8000/backend/";
+    private static String debugRoot = "http://stationerry.pythonanywhere.com/backend/";
+    //private static String debugRoot = "http://127.0.0.1:8000/backend/";
     private static final int commVersion = 1;
 
     private int lastStatus;
@@ -37,17 +41,54 @@ public class Comm {
     }
 
     public static void main(String[] args) {
-        Comm c = new Comm();
+        try {
+            Comm c = new Comm();
          
-        c.apiRequest("sendreport", "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
+            //c.apiRequest("sendreport", "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
+       
+            Scanner read = new Scanner (new File(args[0]));
+            read.useDelimiter(":::::::");
+            String name, version, platform, type, report;
+
+            //while (read.hasNext())
+            //{
+                name = read.next();
+                version = read.next();
+                platform = read.next();
+                type = read.next();
+                report = read.next();
+                System.out.println(name);
+                System.out.println(version);
+                System.out.println(platform);
+                System.out.println(type);
+                System.out.println(report);
+                //JSONObject obj = new JSONObject();
+                c.apiRequest("sendreport", "{\"name\":" + name + "," 
+                                    +"\"version\":" + version + "," 
+                                    +"\"platform\":" + platform + ","
+                                    +"\"type\":" + type + ","
+                                    +"\"report\":" + report + "}");
+                System.out.println("{\"name\":" + name + "," 
+                                    +"\"version\":" + version + "," 
+                                    +"\"platform\":" + platform + ","
+                                    +"\"type\":" + type + ","
+                                    +"\"report\":" + report + "}");
+            //}
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("wrong ");
+            return;
+        }    
+        
     }
 
-    private int apiRequest(String relUrl, Object o) {
+    private int apiRequest(String relUrl, String o) {
         if (o == null) {
-            return apiRequestPayload(relUrl, "");
+            return apiRequestPayload(relUrl, o);
         }
         try {
-            return apiRequestPayload(relUrl, "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
+            //return apiRequestPayload(relUrl, "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
+            return apiRequestPayload(relUrl, o);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("died writing value string " + o);
