@@ -11,8 +11,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Users
 from django.contrib.auth.models import User
 
-from custom_authen import CustomBackend
-
 """ 
 Create your views here.
 Views are referenced by StationerryWebApp.urls
@@ -89,7 +87,7 @@ def logout(request):
     return HttpResponseRedirect(LOGIN_URL)
 
 # This is the main page after the user logs in.
-# @login_required
+@login_required
 def dashboard(request):
     return render(request, DASH_TEMPLATE, {})
 
@@ -109,5 +107,14 @@ http://stackoverflow.com/questions/6467812/how-to-return-a-dictionary-in-python-
 How do I update the chart if the user presses the reload/refresh button though?
 I guess something similar to the login thing??
 """
+@login_required
 def errors(request):
+    # obtain the thingy the user typed in the search bar
+    if 'q' in request.GET:
+        else:
+            print 'You searched for ' + request.GET['q']
+
+    else:
+        print 'wtf?'
+
     return render(request, ERRORS_TEMPLATE, {})
