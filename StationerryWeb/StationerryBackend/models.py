@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.db import models
+from django.contrib.auth.models import User
 
 # Django will give each model an unique ID as a primary key
 # when we do not specify one. (^_^)
@@ -19,7 +21,8 @@ class App(models.Model) :
     App_Name = models.TextField()
     App_Version = models.TextField()
     Platform = models.TextField()
-    User_Name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='Name')
+    User_Name = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='unused_owns')
+    username = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='owns')
 
     def __unicode__(self) :
         return self.App_Name + " " + self.App_Version
