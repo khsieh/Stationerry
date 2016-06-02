@@ -51,25 +51,31 @@ def register(request):
 
 # This is the user authentication 
 def userLogin(request):
-	"""
-	References: 
-	https://www.youtube.com/watch?v=yTK_Kx1Qoqc
+	# References: 
+	# https://www.youtube.com/watch?v=yTK_Kx1Qoqcs
 
-	next = request.GET.get('next', '/main/')
-
-	if request.method == "POST":
+	if request.method == 'POST':
 		username = request.POST['username']
 		password = request.POST['password']
+
+		#for e in Users.objects.all():
+		#	print (e.User_Name + ' ' + e.Password)
+
+		print username
+		print password
+
 		user = authenticate(username=username, password=password)
+		print 'User: ' + user
 
 		# check if user is in our userbase
 		if user is not None:
-
+			print 'wtf!'
 			# in the Django admin thingy, there's a tick mark for (in)activeness
 			# if user is inactive, can't log in
-			if user.is_active
+			if user.is_active:
 				login(request, user)
-				return HttpResponseRedirect(next)
+				print 'log in?'
+				return HttpResponseRedirect("/dashboard/")
 
 			else:
 				return HttpResponse("Inactive user.")
@@ -77,7 +83,6 @@ def userLogin(request):
 		else:
 			return HttpResponseRedirect(LOGIN_URL)
 
-	"""
 	# first param is the request, second is the template, third is a variable to be passed to template
 	# return render(request, 'stationerry/login.html', {'redirect_to': next})
 	return render(request, LOGIN_TEMPLATE, {})
