@@ -16,6 +16,7 @@ from .models import BugReport
 from StationerryBackend.utilities import *
 
 import datetime
+# from datetime import date, timedelta
 
 # for top 5 errors
 from django.db.models import Count
@@ -112,16 +113,13 @@ def dashboard(request):
     totalErrors = len(getAllErrors("Exception", request.user))
     uniqueErrors = len(getUniqErrors(request.user))
 
-    top5 = getTop5(request.user)
-    top5List = json.dumps(top5)
- 
-    print "Today Errors: " + str(todayErrors)
-    print "Total Errors: " + str(totalErrors)
-    print "Unique Errors: " + str(uniqueErrors)
-
+    #top5 = getTop5(request.user)
+    top5List = json.dumps(getTop5(request.user))
+    weeklyList = json.dumps(getErrorsByDay(request.user))
 
     return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year,
-                                            'totalErrors':totalErrors, 'todayErrors': todayErrors, 'uniqueErrors':uniqueErrors, 'top5List' : top5List })
+                                            'totalErrors':totalErrors, 'todayErrors': todayErrors, 'uniqueErrors':uniqueErrors,
+                                            'top5List' : top5List, 'weeklyList':weeklyList})
 
 @login_required
 def errors(request):

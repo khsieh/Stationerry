@@ -87,19 +87,20 @@
   google.charts.setOnLoadCallback(drawPieChart);
 
     function drawWeeklyChart() {
+      var arr = {{weeklyList|safe}};
       var data = google.visualization.arrayToDataTable([
             ['Day', 'Number of Errors'],
-            ['Sun',  54],
-            ['Mon',  3],
-            ['Tue',  13],
-            ['Wed',  22],
-            ['Thur',  5],
-            ['Fri',  1],
-            ['Sat',  0]
+            [arr[6][0], arr[6][1]],
+            [arr[5][0], arr[5][1]],
+            [arr[4][0], arr[4][1]],
+            [arr[3][0], arr[3][1]],
+            [arr[2][0], arr[2][1]],
+            [arr[1][0], arr[1][1]],
+            [arr[0][0], arr[0][1]]
       ]);
 
       var options = {
-            vAxis: { baselineColor: '#FFFFFF', textStyle:{color: 'white'}, gridlines: {color: 'transparent'}, viewWindow: {min: 0}},
+            vAxis: { baselineColor: '#FFFFFF', textStyle:{color: 'white'}, gridlines: {color: 'transparent'}, viewWindow: {min: 0}, format:'0'},
             hAxis: {textStyle:{color: 'white'}},
             width: 750,
             height: 300,

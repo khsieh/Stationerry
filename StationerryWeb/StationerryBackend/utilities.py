@@ -4,6 +4,7 @@ import re
 import sys
 import models as m
 from django.contrib.auth.models import User
+from datetime import date, timedelta
 
 def parse(AppName, AppVersion, AppPlatform, SearchString) :
     loglist = []
@@ -220,3 +221,20 @@ def getTop5(user):
     del top5List[5:]
 
     return top5List
+
+def getErrorsByDay(user):
+    # startDate = date.today()
+    # endDate = date.today() - timedelta(days=0)
+
+    result = []
+
+    for i in range(0, 7):
+        entry = []
+        currDate = date.today() - timedelta(days=i)
+        frequency = len(getTimeErrors(str(currDate), user))
+        entry.append(str(currDate))
+        entry.append(frequency)
+
+        result.append(entry)
+
+    return result
