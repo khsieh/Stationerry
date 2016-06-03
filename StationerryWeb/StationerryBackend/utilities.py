@@ -95,12 +95,12 @@ def errorFilters(errorString, errorType, appName, appVersion, osSys, devModel, u
             typeMatch = True
             
         if appName:
-            appNameMatch = re.search(appName, report.App_Name,re.I)
+            appNameMatch = re.search(appName, report.App_Name.App_Name,re.I)
         else:
             appNameMatch = True
             
         if appVersion:
-            appVersionMatch = re.search(appVersion, report.App_Version, re.I)
+            appVersionMatch = re.search(appVersion, report.App_Name.App_Version, re.I)
         else:
             appVersionMatch = True
 
