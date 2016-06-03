@@ -162,4 +162,4 @@ def account(request):
     date_joined = user.date_joined
     last_login = user.last_login
 
-    return render(request, ACCOUNT_TEMPLATE, {})
+    return render(request, ACCOUNT_TEMPLATE, {'username' : username, 'name':name, 'email':email, 'date_joined':date_joined, 'last_login': last_login})
