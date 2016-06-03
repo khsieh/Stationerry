@@ -18,7 +18,6 @@ def parse(AppName, AppVersion, AppPlatform, SearchString) :
     loglist.append(report.Error_Message)
     for logfile in loglist:
         for line in logfile.split('\n') :
-            print line
         #first regex rule, look for the string "exception"
             matched = re.search(SearchString,line,re.I)
             if matched:
@@ -26,17 +25,6 @@ def parse(AppName, AppVersion, AppPlatform, SearchString) :
         #add more rules, what are we looking for exactly
         #can add more if statements for filters in the beginning if we know what language or platform we're dealing with.
     return matchedlines
-
-
-def findUser(username) :
-    user = 0
-    try :
-        #user = m.Users.objects.get(User_Name=username)
-        pass
-    except :
-        user = 0
-    return user
-
 
 def getParseHTML(AppName, AppVersion, AppPlat, SearchString) :
     grab_list = []
@@ -49,63 +37,26 @@ def getParseHTML(AppName, AppVersion, AppPlat, SearchString) :
         lineString = lineString + line + "<br>"
     return lineString
 
-#from db, output app name, app ver, and platform
-def findError(SearchString) :
-    loglist = []
-    matchedlines = []
-    apps = []
-    reportSet = m.BugReport.objects.all()
-    
-    report = reportSet.first()
-    while not (report == reportSet.last()) :
-        if m.App.objects.get(pk=report.App_Name_id).App_Name:
-            apps.append(m.App.objects.get(id=report.App_Name_id))
-            #loglist.append(m.App.objects.get(id=report.App_Name_id).App_Name)
-            #print m.App.objects.get(id=report.App_Name_id).App_Name
-        report = reportSet.iterator()
-    apps.append(m.App.objects.get(id=report.App_Name_id))
-    #loglist.append(m.App.objects.get(id=report.App_Name_id).App_Name)
-    #print m.App.objects.get(id=report.App_Name_id).App_Name
-    
-    for app in apps:
-        #print line
-        line = app.App_Name
-        matched = re.search(SearchString,line,re.I)
-        if matched:
-            line = "App Name: " + app.App_Name + "App Version: " + app.App_Version + " App Platform: " + app.Platform
-            matchedlines.append(line)
-    return matchedlines
-    
-
 def getAllErrors(errorString, user) :
-    #filter for only user's reports
-    currentUser = User.objects.get(username=user)
     
     appSet = m.App.objects.filter(username=user)
-    #print "AppSet: ", len(appSet)
     reportSet = m.BugReport.objects.all()
-    #print "reportSet: ", len(reportSet)
     userList = []
     for app in appSet:
         for report in reportSet:
             if (app.App_Name == report.App_Name.App_Name):
-                print "Matched!!"
                 userList.append(report)
     userSet = list(set(userList))
 
-    #this works... but it prints all bug reports
     logList = []
     for report in userSet:
         report_lines = report.Error_Message.split('\n')
         for line in report_lines:
-            #print report.Error_Message
-            #print line
             if re.search(errorString, line, re.I) :
                 tempDict = {}
                 tempDict['time'] = str(report.Time.month) + "/" + str(report.Time.day) + "/" + str(report.Time.year) + ", " + str(report.Time.hour) + ":" + str(report.Time.minute) + ":" + str(report.Time.second)
                 tempDict['error_type'] = report.Error_Type
                 tempDict['error_msg'] = line
-                #print "Error Message: " + line
                 tempDict['status'] = report.Status
                 tempDict['device_model'] = report.Device_Model
                 app = m.App.objects.get(id=report.App_Name_id)
@@ -115,3 +66,70 @@ def getAllErrors(errorString, user) :
                 logList.append(tempDict)
     return logList
     
+def errorFilters(errorString, errorType, appName, appVersion, osSys, devModel, user) :
+    #filter for only user's reports
+    currentUser = User.objects.get(username=user)
+    
+    #regex matching variables
+    stringMatch=False
+    typeMatch=False
+    appNameMatch=False
+    appVersionMatch=False
+    osSysMatch=False
+    devModelMatch=False
+    
+    appSet = m.App.objects.filter(username=user)
+    reportSet = m.BugReport.objects.all()
+
+    userList = []
+    for app in appSet:
+        for report in reportSet:
+            if (app.App_Name == report.App_Name.App_Name):
+                userList.append(report)
+    userSet = list(set(userList))
+
+    logList = []
+    for report in userSet:
+        if errorType:
+            typeMatch = re.search(errorType, report.Error_Type,re.I)
+        else:
+            typeMatch = True
+            
+        if appName:
+            appNameMatch = re.search(appName, report.App_Name,re.I)
+        else:
+            appNameMatch = True
+            
+        if appVersion:
+            appVersionMatch = re.search(appVersion, report.App_Version, re.I)
+        else:
+            appVersionMatch = True
+
+        if osSys:
+            osSysMatch = re.search(osSys, report.Model_OS, re.I)
+        else:
+            osSysMatch = True
+
+        if devModel:
+            devModelMatch = re.search(devModel, report.Device_Model, re.I)
+        else:
+            devModelMatch = True
+
+        if errorString:
+            report_lines = report.Error_Message.split('\n')
+            for line in report_lines:
+                stringMatch = re.search(errorString, line, re.I)
+                if stringMatch:
+                    if typeMatch and appNameMatch and appVersionMatch and osSysMatch and devModelMatch:
+                        tempDict = {}
+                        tempDict['time'] = str(report.Time.month) + "/" + str(report.Time.day) + "/" + str(report.Time.year) + ", " + str(report.Time.hour) + ":" + str(report.Time.minute) + ":" + str(report.Time.second)
+                        tempDict['error_type'] = report.Error_Type
+                        tempDict['error_msg'] = line
+                        tempDict['status'] = report.Status
+                        tempDict['device_model'] = report.Device_Model
+                        app = m.App.objects.get(id=report.App_Name_id)
+                        tempDict['app_name'] = app.App_Name
+                        tempDict['app_version'] = app.App_Version
+                        tempDict['device_os'] = app.Platform
+                        logList.append(tempDict)
+    return logList
