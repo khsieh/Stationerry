@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 # reference the Users model for user registration
 from django.contrib.auth.models import User
+from .models import App
 
 # import utilities.py
 from StationerryBackend.utilities import *
@@ -24,8 +25,6 @@ DASH_TEMPLATE = 'stationerry/dashboard.html'
 ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
 PROJECTS_TEMPLATE = 'stationerry/projects.html'
-
-currUser = None
 
 # This is the homepage
 def home(request):
@@ -75,7 +74,6 @@ def userLogin(request):
             # in the Django admin thingy, there's a tick mark for (in)activeness
             # if user is inactive, can't log in
             if user.is_active:
-                currUser = user
                 login(request, user)
                 return HttpResponseRedirect("/dashboard/")
 
@@ -89,7 +87,6 @@ def userLogin(request):
     return render(request, LOGIN_TEMPLATE, {"errMessage":errMessage})
 
 def userLogout(request):
-    currUser = None
     logout(request)
     return HttpResponseRedirect(LOGIN_URL)
 
@@ -129,4 +126,25 @@ def errors(request):
 
 @login_required
 def projects(request):
-    return render(request, PROJECTS_TEMPLATE, {})
+
+    if request.method == 'POST':
+        name = request.POST['name']
+        version = request.POST['version']
+        platform = request.POST['platform']
+        
+        App.objects.create (
+            App_Name=name,
+            App_Version=version,
+            Platform=platform,
+            username=request.user
+        )
+
+    # obtain the user's projects
+    querySet = App.objects.filter(username=request.user.id)
+
+    # turn the query set into a list for the template
+    stationList = []
+    for app in querySet:
+        stationList.append(app)
+    
+    return render(request, PROJECTS_TEMPLATE, {"stationList" : stationList})

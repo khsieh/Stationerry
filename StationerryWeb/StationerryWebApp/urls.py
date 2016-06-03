@@ -48,5 +48,5 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),
     url(r'^errors/$', views.errors, name='errors'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
-    url(r'^projects/$', views.projects, name='projects')
+    url(r'^stations/$', views.projects, name='projects')
 ]
