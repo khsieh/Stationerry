@@ -25,6 +25,7 @@ DASH_TEMPLATE = 'stationerry/dashboard.html'
 ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
 PROJECTS_TEMPLATE = 'stationerry/projects.html'
+INFO_TEMPLATE = 'stationerry/info.html'
 
 # This is the homepage
 def home(request):
@@ -95,10 +96,6 @@ def userLogout(request):
 def dashboard(request):
     return render(request, DASH_TEMPLATE, {})
 
-"""
-http://stackoverflow.com/questions/22108082/how-to-pass-a-list-from-a-view-to-template-in-django
-http://stackoverflow.com/questions/8949834/django-how-do-i-iterate-through-a-list-of-dictionaries-to-concatenate-values-f
-"""
 @login_required
 def errors(request):
     errorList = []
@@ -114,6 +111,7 @@ def errors(request):
         # results from db in a list of dictionaries
         else:
             print 'ERRORS.HTML: You searched for ' + request.GET['q']
+
             book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}
             book2 = {'title':'Flying Pig', 'author':'Piggie', 'year': '2016'}
             errorList.append(book1)
@@ -148,3 +146,7 @@ def projects(request):
         stationList.append(app)
     
     return render(request, PROJECTS_TEMPLATE, {"stationList" : stationList})
+
+@login_required
+def info(request):
+    return render(request, INFO_TEMPLATE, {})

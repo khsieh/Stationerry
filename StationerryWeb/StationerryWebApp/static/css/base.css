@@ -355,6 +355,8 @@ hr{
 
 .navbar-default .navbar-brand {
     color: #ffffff;
+    font-family: 'Indie Flower';
+    font-size: 30px;
     outline: none;
 }
 

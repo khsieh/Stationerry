@@ -7,6 +7,7 @@
 /* ---------- http://weloveiconfonts.com/ ---------- */
 /* icons */
 @import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
 /* login stuff */
 @import "reset.css";
@@ -33,7 +34,7 @@ hr{
 
 h1.title { 
   font-size: 50px;
-  font-family: 'Passion One', cursive; 
+  font-family: 'Indie Flower', cursive; 
   font-weight: 400; 
   color: black;
   padding-bottom: 15px;
