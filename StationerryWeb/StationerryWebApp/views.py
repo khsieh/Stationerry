@@ -123,15 +123,19 @@ def errors(request):
 
             errorList = getAllErrors(request.GET['q'], request.user)
 
-            """
-            book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}
-            book2 = {'title':'Flying Pig', 'author':'Piggie', 'year': '2016'}
-            errorList.append(book1)
-            errorList.append(book2) 
-            """
-
             hideResults = False
             searchQuery = request.GET['q']
+
+    elif 'fq' in request.GET:
+        if request.GET['fq'] == '':
+            print 'ERRORS.HTML: Nothing was entered.'
+            hideResults = True
+        else:
+            print 'ERRORS.HTML: You filtered for ' + request.GET['fq']
+            
+            errorList = errorFilters(request.GET['fq'], request.GET['errorType'], request.GET['appName'], request.GET['appVersion'], request.GET['os'], request.GET['deviceModel'], request.user)
+            hideResults = False
+            searchQuery = request.GET['fq']
 
 
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})
