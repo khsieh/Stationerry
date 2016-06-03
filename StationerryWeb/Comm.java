@@ -15,8 +15,8 @@ import java.io.*;
 public class Comm {
     private static String serverRoot = "http://stationerry.pythonanywhere.com/backend/";
     //private static String serverRoot = "http://127.0.0.1:8000/backend/";
-    private static String debugRoot = "http://stationerry.pythonanywhere.com/backend/";
-    //private static String debugRoot = "http://127.0.0.1:8000/backend/";
+    //private static String debugRoot = "http://stationerry.pythonanywhere.com/backend/";
+    private static String debugRoot = "http://127.0.0.1:8000/backend/";
     private static final int commVersion = 1;
 
     private int lastStatus;
@@ -43,7 +43,36 @@ public class Comm {
     public static void main(String[] args) {
         try {
             Comm c = new Comm();
-         
+	    if (args[0].equals("NATALIE_THROW"))
+		{
+		    String data = new String();
+		    String fileName = "logerror.txt";
+		    try {
+			String line = null;
+			// FileReader reads text files in the default encoding.
+			FileReader fileReader = new FileReader(fileName);
+			
+			// Always wrap FileReader in BufferedReader.
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			
+			while((line = bufferedReader.readLine()) != null) {
+			    data = data + line + "\n";
+			}   
+			
+			// Always close files.
+			bufferedReader.close();         
+		    }
+		    catch(FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+		    }
+		    catch(IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
+			// Or we could just do this: 
+			// ex.printStackTrace();
+		    }
+		    c.apiRequest("sendreport",data);
+		    return;
+		}
             //c.apiRequest("sendreport", "{\"name\":\"apphello\", \"version\":\"3.2.1\", \"platform\":\"platplat\", \"type\":\"typehello\", \"report\":\"reporthey\"}");
        
             Scanner read = new Scanner (new File(args[0]));
@@ -100,7 +129,8 @@ public class Comm {
         String line;
         StringBuffer jsonString = new StringBuffer();
         try {
-            URL url = new URL(serverRoot + relUrl);
+            //URL url = new URL(serverRoot + relUrl);
+	    URL url = new URL(debugRoot + relUrl);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -142,7 +172,8 @@ public class Comm {
         String line;
         StringBuffer jsonString = new StringBuffer();
         try {
-            URL url = new URL(serverRoot + relUrl);
+            //URL url = new URL(serverRoot + relUrl);
+	    URL url = new URL(debugRoot + relUrl);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
