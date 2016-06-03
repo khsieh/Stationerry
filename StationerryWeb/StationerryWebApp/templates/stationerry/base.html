@@ -57,7 +57,7 @@
                 <li role="presentation"><a href="#account"><i class="fa fa-user fa-2x"></i></a></li>
                 <li role="presentation"><a href="#notifications"><i class="fa fa-bell fa-2x"></i></a></li>
                 <li role="presentation"><a href="#mail"><i class="fa fa-envelope fa-2x"></i></a></li>
-                <li role="presentation"><a href="#settings"><i class="fa fa-cog fa-2x"></i></a></li>
+                <li role="presentation"><a href="{% url 'info' %}"><i class="fa fa-question-circle-o fa-2x"></i></a></li>
                 <li role="presentation"><a href="{% url 'logout' %}"><i class="fa fa-sign-out fa-2x"></i></a></li>
 
             <!-- Drop down -->
@@ -90,11 +90,9 @@
                 <div class="sidebar-links">
 
                     {% block link-dash %} <a class="link-dash" href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>Dashboard</a> {% endblock %}
-                    {% block link-errors %} <a class="link-errors" href="{% url 'errors' %}"><i class="fa fa-bar-chart"></i>Errors</a> {% endblock %}
+                    {% block link-errors %} <a class="link-errors" href="{% url 'errors' %}"><i class="fa fa-search"></i>Errors</a> {% endblock %}
                     {% block link-projects %} <a class="link-projects" href="{% url 'projects' %}"><i class="fa fa-paperclip"></i>Stations</a> {% endblock %}
                     {% block link-todo %} <a class="link-todo" href="#todo"><i class="fa fa-thumb-tack"></i>Todo</a> {% endblock %}
-                    {% block link-temp1 %} <a class="link-temp1" href="#temp1"><i class="fa fa-eraser"></i>Temp</a> {% endblock %}
-                    {% block link-temp2 %} <a class="link-temp2" href="#temp2"><i class="fa fa-scissors"></i>Temp</a> {% endblock %}
 
                 </div>
 

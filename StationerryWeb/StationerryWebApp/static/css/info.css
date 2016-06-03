@@ -1,0 +1,23 @@
+:root {
+	--reg-text-color: black;
+}
+
+h1 {
+	color: #4484CE;
+	font-family: 'Raleway', sans-serif;
+	font-size: 32px;
+}
+
+#all-members-div {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	text-align: center;
+	color: #42a5f5;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+}
+
+.team-member-div {
+}
+
