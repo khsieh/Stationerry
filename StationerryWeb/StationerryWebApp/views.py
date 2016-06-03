@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 # reference the Users model for user registration
 from django.contrib.auth.models import User
 from .models import App
+from .models import BugReport
 
 # import utilities.py
 from StationerryBackend.utilities import *
@@ -101,6 +102,16 @@ def dashboard(request):
     monthName = now.strftime("%b")
     day = str(now.day)
     year = str(now.year) 
+
+    # errors from today
+    # todayErrors = len(BugReport.objects.filter(Time__contains=now.strftime("%Y-%m-%d")))
+
+    totalErrors = len(getAllErrors("Exception", request.user))
+    # uniqueErrors = len(set(getAllErrors("Exception", request.user)))
+ 
+    # print "Daily Errors: " + str(todayErrors)
+    print "Total Errors: " + str(totalErrors)
+    # print "Unique Errors: " + str(uniqueErrors)
 
     return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year})
 
