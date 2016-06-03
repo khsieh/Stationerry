@@ -125,11 +125,7 @@ def errors(request):
 
             hideResults = False
             searchQuery = request.GET['q']
-<<<<<<< HEAD
-    #filter search
-=======
 
->>>>>>> 34227de5f8ed5130b7b45a61426304737dd99e5f
     elif 'fq' in request.GET:
         if request.GET['fq'] == '':
             print 'ERRORS.HTML: Nothing was entered.'
@@ -140,10 +136,6 @@ def errors(request):
             errorList = errorFilters(request.GET['fq'], request.GET['errorType'], request.GET['appName'], request.GET['appVersion'], request.GET['os'], request.GET['deviceModel'], request.user)
             hideResults = False
             searchQuery = request.GET['fq']
-<<<<<<< HEAD
-=======
-
->>>>>>> 34227de5f8ed5130b7b45a61426304737dd99e5f
 
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})
 
