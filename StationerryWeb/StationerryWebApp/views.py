@@ -17,6 +17,10 @@ from StationerryBackend.utilities import *
 
 import datetime
 
+# for top 5 errors
+from django.db.models import Count
+import json
+
 """ 
 Create your views here.
 Views are referenced by StationerryWebApp.urls
@@ -104,16 +108,20 @@ def dashboard(request):
     year = str(now.year) 
 
     # errors from today
-    # todayErrors = len(BugReport.objects.filter(Time__contains=now.strftime("%Y-%m-%d")))
-
+    todayErrors = len(getTimeErrors(now.strftime("%Y-%m-%d"), request.user))
     totalErrors = len(getAllErrors("Exception", request.user))
-    # uniqueErrors = len(set(getAllErrors("Exception", request.user)))
- 
-    # print "Daily Errors: " + str(todayErrors)
-    print "Total Errors: " + str(totalErrors)
-    # print "Unique Errors: " + str(uniqueErrors)
+    uniqueErrors = len(getUniqErrors(request.user))
 
-    return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year})
+    top5 = getTop5(request.user)
+    top5List = json.dumps(top5)
+ 
+    print "Today Errors: " + str(todayErrors)
+    print "Total Errors: " + str(totalErrors)
+    print "Unique Errors: " + str(uniqueErrors)
+
+
+    return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year,
+                                            'totalErrors':totalErrors, 'todayErrors': todayErrors, 'uniqueErrors':uniqueErrors, 'top5List' : top5List })
 
 @login_required
 def errors(request):

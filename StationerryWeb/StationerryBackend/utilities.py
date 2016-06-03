@@ -67,8 +67,6 @@ def getAllErrors(errorString, user) :
     return logList
     
 def errorFilters(errorString, errorType, appName, appVersion, osSys, devModel, user) :
-    #filter for only user's reports
-    currentUser = User.objects.get(username=user)
     
     #regex matching variables
     stringMatch=False
@@ -139,11 +137,86 @@ def getTimeErrors(timeString, user) :
     appSet = m.App.objects.filter(username=user)
     reportSet = m.BugReport.objects.all()
     userList = []
+
+    if len(appSet) > 0:
+        for report in reportSet:
+            userList.append(report)
+
+    userSet = list(set(userList))
+
+    logList = []
+
+    for report in userSet:
+        if re.search(timeString, str(report.Time), re.I):
+            report_lines = report.Error_Message.split('\n')
+            for line in report_lines:
+                if re.search("Exception", line, re.I):
+                    logList.append(line)
+    
+    return logList
+
+def getUniqErrors(user) :
+    
+    appSet = m.App.objects.filter(username=user)
+    reportSet = m.BugReport.objects.all()
+
+    userList = []
     for app in appSet:
         for report in reportSet:
-            if (re.search(timeString, report.Time, re.I)):
+            if (app.App_Name == report.App_Name.App_Name):
                 userList.append(report)
     userSet = list(set(userList))
-    
-    return userSet
 
+    logList = []
+    for report in userSet:
+        report_lines = report.Error_Message.split('\n')
+        for line in report_lines:
+            stringMatch = re.search("Exception", line, re.I)
+
+            # if match, append
+            if stringMatch:
+                logList.append(line)
+
+    return list(set(logList))
+
+def getKey(item):
+    return item[1]
+
+def getTop5(user):
+    appSet = m.App.objects.filter(username=user)
+    reportSet = m.BugReport.objects.all()
+
+    
+    top5 = {}
+
+    userList = []
+    for app in appSet:
+        for report in reportSet:
+            if (app.App_Name == report.App_Name.App_Name):
+                userList.append(report)
+    userSet = list(set(userList))
+
+    for report in userSet:
+        report_lines = report.Error_Message.split('\n')
+        for line in report_lines:
+            stringMatch = re.search("Exception", line, re.I)
+
+            if stringMatch:
+                if top5.has_key(line):
+                    # print line
+                    top5[line] += 1
+                else:
+                    top5[line] = 1
+
+    top5List = []
+
+    for key, val in top5.iteritems():
+        entry = []
+        entry.append(key)
+        entry.append(val)
+        top5List.append(entry)
+
+    sorted(top5List, key=getKey, reverse=True)
+    del top5List[5:]
+
+    return top5List
