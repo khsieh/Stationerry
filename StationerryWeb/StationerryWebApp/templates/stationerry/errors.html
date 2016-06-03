@@ -10,16 +10,39 @@
 
 {% block content %}
 
+<!-- div for the popup -->
+<div id="abc">
+    <!-- Contact Us Form -->
+    <form action="#" id="filter-form" method="post" name="filters">
+
+    <button type="button" class="btn btn-default btn-md" onclick ="div_hide()" id="close">
+    <span class="glyphicon glyphicon-remove"></span>
+    </button>
+
+    <h3>Contact Us</h3>
+    <input id="name" name="name" placeholder="Name" type="text">
+    <input id="email" name="email" placeholder="Email" type="text">
+    <br><br>
+    <input class="filter-submit" type="submit" value="Add Filters"/>
+    </form>
+</div>
+<!-- Popup Div Ends Here -->
+
+<div id="filter-div">
+  <button class="btn btn-link" id="filter-button" onclick="div_show()"><span class="glyphicon glyphicon-filter"></span></button>
+</div>
+
 <div class="flexsearch">
-        <div class="flexsearch--wrapper">
-            <form class="flexsearch--form" action="{% url 'errors' %}" method="get">
-                <div class="flexsearch--input-wrapper">
-                    <input class="flexsearch--input" type="search" name="q" placeholder="search for errors">
-                </div>
-                <input class="flexsearch--submit" type="submit" value="&#10140;"/>
-            </form>
+  <div class="flexsearch--wrapper">
+    <form class="flexsearch--form" action="{% url 'errors' %}" method="get">
+      <div class="flexsearch--input-wrapper">
+        <input class="flexsearch--input" type="search" name="q" placeholder="search for errors">
+      </div>
+      <input class="flexsearch--submit" type="submit" value="&#10140;"/>
+    </form>
         </div>
 </div>
+
 
 {% if hideResults == False %}
 <div class="result-box">
@@ -31,7 +54,8 @@
         <th>Time</th>
         <th>Error Type</th>
         <th>Error Message</th>
-        <th>Application</th>
+        <th>App</th>
+        <th>App Version</th>
         <th>OS</th>
         <th>Device Model</th>
         <th>Status</th>
@@ -55,4 +79,29 @@
 
 {% endif %}
 </div>
-{% endblock %}
+
+{% endblock %} <!-- End of block content -->
+
+{% block extra-scripts %}
+<script>
+function check_empty() {
+  if (document.getElementById('name').value == "" || document.getElementById('email').value == "" || document.getElementById('msg').value == "") {
+    alert("Fill All Fields !");
+  } 
+  else 
+  {
+    document.getElementById('form').submit();
+    alert("Form Submitted Successfully...");
+  }
+}
+
+//Function To Display Popup
+function div_show() {
+  document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+  document.getElementById('abc').style.display = "none";
+}
+</script>
+{% endblock %} <!-- end of extra scripts -->

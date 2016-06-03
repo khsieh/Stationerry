@@ -23,6 +23,7 @@ LOGIN_TEMPLATE = 'stationerry/login.html'
 DASH_TEMPLATE = 'stationerry/dashboard.html'
 ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
+PROJECTS_TEMPLATE = 'stationerry/projects.html'
 
 currUser = None
 
@@ -125,3 +126,7 @@ def errors(request):
 
 
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})
+
+@login_required
+def projects(request):
+    return render(request, PROJECTS_TEMPLATE, {})

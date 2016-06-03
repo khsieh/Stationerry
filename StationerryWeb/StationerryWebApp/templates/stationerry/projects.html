@@ -1,0 +1,9 @@
+{% extends "stationerry/base.html" %}
+
+{% block extra-styles %} 
+<link rel="stylesheet" href="/static/css/projects.css"> 
+{% endblock %}
+
+{% block link-projects %} <a class="link-projects selected" href="{% url 'projects' %}"><i class="fa fa-bar-chart"></i>Projects</a> {% endblock %}
+
+{% block header %} Projects {% endblock %}
