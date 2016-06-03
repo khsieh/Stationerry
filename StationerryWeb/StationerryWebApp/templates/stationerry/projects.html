@@ -2,8 +2,96 @@
 
 {% block extra-styles %} 
 <link rel="stylesheet" href="/static/css/projects.css"> 
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
 {% endblock %}
 
-{% block link-projects %} <a class="link-projects selected" href="{% url 'projects' %}"><i class="fa fa-bar-chart"></i>Projects</a> {% endblock %}
+{% block link-projects %} <a class="link-projects selected" href="{% url 'projects' %}"><i class="fa fa-paperclip"></i>Stations</a> {% endblock %}
 
-{% block header %} Projects {% endblock %}
+{% block header %} Stations {% endblock %}
+
+{% block content %}
+<!-- div for the popup -->
+<div id="abc">
+    <!-- Contact Us Form -->
+    <form id="filter-form" method="post" name="filters">
+    {% csrf_token %}
+
+    <button type="button" class="btn btn-default btn-md" onclick ="div_hide()" id="close">
+    <span class="glyphicon glyphicon-remove"></span>
+    </button>
+
+    <h3>New Station</h3>
+      <div class="form-group">
+        <div class="input-name">Application Name</div>
+        <input id="name" name="name" value="" class="form-control" placeholder="eg: Youtube" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Application Version</div>
+        <input id="version" name="version" value="" class="form-control" placeholder="eg: 1.1.8" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Platform</div>
+        <input id="platform" name="platform" value="" class="form-control" placeholder="eg: Windows" type="text">
+      </div>
+
+      <br><br>
+
+      <div class="form-group">
+        <input id="add-filter-btn" class="btn btn-primary" type="submit" value="Add Station">
+      </div>
+    </form>
+</div>
+<!-- Popup Div Ends Here -->
+
+<div id="project-div">
+	<h1>You have {{ stationList|length }} Stations. </h1>
+	<div id="add-btn-div">
+  		<button class="btn btn-default" id="add-station-button" onclick="div_show()"><span class="glyphicon glyphicon-plus"></span> Add</button>
+	</div>
+</div>
+
+	{% if stationList|length != 0 %}
+	<div id="result-box">
+
+		<table class="table table-hover">
+		    <thead>
+		      <tr id="table-column-elements">
+		        <th>Application Name</th>
+		        <th>Application Version</th>
+		        <th>Platform</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+		      {% for station in stationList %}
+		      <tr id="table-row-elements">
+		        <td>{{station.App_Name}}</td>
+		        <td>{{station.App_Version}}</td>
+		        <td>{{station.Platform}}</td>
+		      </tr>
+		      {% endfor %}
+
+		    </tbody>
+		</table>
+	</div>
+	{% endif %}
+
+{% endblock %} <!-- end of content block -->
+
+{% block extra-scripts %}
+<script>
+
+//Function To Display Popup
+function div_show() {
+  document.getElementById('abc').style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(){
+  document.getElementById('abc').style.display = "none";
+}
+</script>
+{% endblock %} <!-- end of extra scripts -->

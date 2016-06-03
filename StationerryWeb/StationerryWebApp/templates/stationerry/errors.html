@@ -13,17 +13,58 @@
 <!-- div for the popup -->
 <div id="abc">
     <!-- Contact Us Form -->
-    <form action="#" id="filter-form" method="post" name="filters">
+    <form id="filter-form" method="get" name="filters">
 
     <button type="button" class="btn btn-default btn-md" onclick ="div_hide()" id="close">
     <span class="glyphicon glyphicon-remove"></span>
     </button>
 
-    <h3>Contact Us</h3>
-    <input id="name" name="name" placeholder="Name" type="text">
-    <input id="email" name="email" placeholder="Email" type="text">
-    <br><br>
-    <input class="filter-submit" type="submit" value="Add Filters"/>
+    <h3>Filters</h3>
+      <div class="form-group">
+        <div class="input-name">Search</div>
+        <input id="search-string" name="q" value="" class="form-control" placeholder="What are you looking for?" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Error Type</div>
+        <input id="error-type" name="errorType" value="" class="form-control" placeholder="eg: NullException" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Error Message</div>
+        <input id="app-msg" name="errorMsg" value="" class="form-control" placeholder="eg: syntax error at line 12" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">App Name</div>
+        <input id="app-name" name="appName" value="" class="form-control" placeholder="eg: Facebook" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">App Version</div>
+        <input id="app-version" name="appVersion" value="" class="form-control" placeholder="eg: 2.8" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Operating System</div>
+        <input id="os" name="os" value="" class="form-control" placeholder="eg: Linux" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Device Model</div>
+        <input id="device-model" name="deviceModel" value="" class="form-control" placeholder="eg: Samsung Galaxy S7" type="text">
+      </div>
+
+      <div class="form-group">
+        <div class="input-name">Status</div>
+        <input id="status" name="status" value="" class="form-control" placeholder="eg: unresolved" type="text">
+      </div>
+
+      <br><br>
+
+      <div class="form-group">
+        <input id="add-filter-btn" class="btn btn-primary" type="submit" value="Apply Filters">
+      </div>
     </form>
 </div>
 <!-- Popup Div Ends Here -->
@@ -84,16 +125,6 @@
 
 {% block extra-scripts %}
 <script>
-function check_empty() {
-  if (document.getElementById('name').value == "" || document.getElementById('email').value == "" || document.getElementById('msg').value == "") {
-    alert("Fill All Fields !");
-  } 
-  else 
-  {
-    document.getElementById('form').submit();
-    alert("Form Submitted Successfully...");
-  }
-}
 
 //Function To Display Popup
 function div_show() {
