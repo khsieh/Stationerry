@@ -1,0 +1,1 @@
+"coolname":::::::"coolversion":::::::"coolplatform":::::::"ERROR":::::::"this is an exception\nhello\nthere is good\nbad exception"

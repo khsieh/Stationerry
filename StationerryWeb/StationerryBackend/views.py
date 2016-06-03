@@ -32,6 +32,7 @@ def getquery(request) :
 
 def insertReportIntoDB(AppName, AppVersion, iPlatform, ReportType, Report) :
     AppSet = App.objects.filter(App_Name=AppName)
+    print AppName
     if len(AppSet) is 0 :
         return HttpResponse("No entry for an app with that name exist!")
     TargetPlatform = AppSet.filter(Platform=iPlatform)
