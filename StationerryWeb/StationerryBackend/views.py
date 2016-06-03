@@ -92,24 +92,33 @@ def insertReportIntoDB(AppName, AppVersion, iPlatform, ReportType, Report, Brand
 
     #First filter: App Name
     FilterSet1 = []
-    for a in AppSet:
-        matchedName = (AppName == a.App_Name)
-        if matchedName:
-            FilterSet1.append(a)
+    if not AppName:
+        FilterSet1 = AppSet
+    else:
+        for a in AppSet:
+            matchedName = (AppName == a.App_Name)
+            if matchedName:
+                FilterSet1.append(a)
     
     #Second filter: App Version
     FilterSet2 = []
-    for f in FilterSet1:    
-        matchedVersion = (AppVersion == f.App_Version)
-        if matchedVersion:
-            FilterSet2.append(f)
+    if not AppVersion:
+        FilterSet2 = FilterSet1
+    else:
+        for f in FilterSet1:    
+            matchedVersion = (AppVersion == f.App_Version)
+            if matchedVersion:
+                FilterSet2.append(f)
 
     #Third filter: App Platform
     FilterSet3 = []
-    for f in FilterSet2:
-        matchedPlatform = (iPlatform == f.Platform)
-        if matchedPlatform:
-            FilterSet3.append(f)
+    if not iPlatform:
+        FilterSet3 = FilterSet2
+    else:
+        for f in FilterSet2:
+            matchedPlatform = (iPlatform == f.Platform)
+            if matchedPlatform:
+                FilterSet3.append(f)
     
     if len(FilterSet3) is 0:
         return HttpResponse("No entry for an app on target platform exist.")
