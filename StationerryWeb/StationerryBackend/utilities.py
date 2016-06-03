@@ -139,9 +139,16 @@ def getTimeErrors(timeString, user) :
     reportSet = m.BugReport.objects.all()
     userList = []
 
+    """
     if len(appSet) > 0:
         for report in reportSet:
             userList.append(report)
+    """
+
+    for app in appSet:
+        for report in reportSet:
+            if (app.App_Name == report.App_Name.App_Name):
+                userList.append(report)
 
     userSet = list(set(userList))
 
