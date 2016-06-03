@@ -133,3 +133,17 @@ def errorFilters(errorString, errorType, appName, appVersion, osSys, devModel, u
                         tempDict['device_os'] = app.Platform
                         logList.append(tempDict)
     return logList
+
+def getTimeErrors(timeString, user) :
+    
+    appSet = m.App.objects.filter(username=user)
+    reportSet = m.BugReport.objects.all()
+    userList = []
+    for app in appSet:
+        for report in reportSet:
+            if (re.search(timeString, report.Time, re.I)):
+                userList.append(report)
+    userSet = list(set(userList))
+    
+    return userSet
+

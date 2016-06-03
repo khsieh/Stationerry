@@ -51,6 +51,9 @@ def recievereport(request) :
             if matchData :
                 OS = line
                 Platform = line[matchData.end():]
+            matchData = re.match(".*Exception",line)
+            if matchData : 
+                BugType = line[matchData.start():]
             matchData = re.match("PHONE_MODEL=", line)
             if matchData :
                 Model = line[matchData.end():]
@@ -87,8 +90,8 @@ def insertReportIntoDB(AppName, AppVersion, iPlatform, ReportType, Report, Brand
     if len(AppSet) is 0 :
         return HttpResponse("No entry for an app with that name exist!")
     
-    print "Before All Filters:"
-    print AppSet
+    #print "Before All Filters:"
+    #print AppSet
 
     #First filter: App Name
     FilterSet1 = []
