@@ -137,7 +137,6 @@ def errors(request):
             hideResults = False
             searchQuery = request.GET['fq']
 
-
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})
 
 @login_required
