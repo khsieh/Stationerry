@@ -105,7 +105,6 @@
         <th>App Version</th>
         <th>Device OS</th>
         <th>Device Model</th>
-        <th>Status</th>
       </tr>
     </thead>
 
@@ -116,12 +115,11 @@
       <tr>
         <td>{{error.time}}</td>
         <td>{{error.error_type}}</td>
-        <td>{{error.msg}}</td>
+        <td>{{error.error_msg}}</td>
         <td>{{error.app_name}}</td>
-        <td>{{error.app_version}</td>
+        <td>{{error.app_version}}</td>
         <td>{{error.device_os}}</td>
         <td>{{error.device_model}}</td>
-        <td>{{error.status}}</td>
       </tr>
       {% endfor %}
 

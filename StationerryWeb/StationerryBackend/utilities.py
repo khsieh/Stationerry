@@ -79,15 +79,18 @@ def findError(SearchString) :
 def getAllErrors(errorString) :
     logList = []
     reportSet = m.BugReport.objects.all()
-    for report in reportSet :
-        for line in report.Error_Message :
-            if re.search(errorString, line) :
+    #print len(reportSet)
+    for report in reportSet:
+        report_lines = report.Error_Message.split('\n')
+        for line in report_lines:
+            #print report.Error_Message
+            #print line
+            if re.search(errorString, line, re.I) :
                 tempDict = {}
-                tempDict['time'] = str(report.Time.month) + " " + str(report.Time.day) + " " + str(report.Time.year) + " " + \
-                                   str(report.Time.hour) + " " + str(report.Time.minute) + " " + str(report.Time.second) + " " + \
-                                   str(report.Time.mircosecond)
+                tempDict['time'] = str(report.Time.month) + "/" + str(report.Time.day) + "/" + str(report.Time.year) + ", " + str(report.Time.hour) + ":" + str(report.Time.minute) + ":" + str(report.Time.second)
                 tempDict['error_type'] = report.Error_Type
-                tempDict['error_msg'] = report.Error_Message
+                tempDict['error_msg'] = line
+                #print "Error Message: " + line
                 tempDict['status'] = report.Status
                 tempDict['device_model'] = report.Device_Model
                 app = m.App.objects.get(id=report.App_Name_id)
@@ -95,6 +98,5 @@ def getAllErrors(errorString) :
                 tempDict['app_version'] = app.App_Version
                 tempDict['device_os'] = app.Platform
                 logList.append(tempDict)
-                break
     return logList
     
