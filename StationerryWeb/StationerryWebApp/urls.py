@@ -49,5 +49,6 @@ urlpatterns = [
     url(r'^errors/$', views.errors, name='errors'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
     url(r'^stations/$', views.projects, name='projects'),
-    url(r'^aboutus/$', views.info, name='info')
+    url(r'^aboutus/$', views.info, name='info'),
+    url(r'^account/$', views.account, name='account')
 ]

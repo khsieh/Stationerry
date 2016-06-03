@@ -26,6 +26,7 @@ ERRORS_TEMPLATE = 'stationerry/errors.html'
 REGISTER_TEMPLATE = 'stationerry/register.html'
 PROJECTS_TEMPLATE = 'stationerry/projects.html'
 INFO_TEMPLATE = 'stationerry/info.html'
+ACCOUNT_TEMPLATE = 'stationerry/account.html'
 
 # This is the homepage
 def home(request):
@@ -150,3 +151,15 @@ def projects(request):
 @login_required
 def info(request):
     return render(request, INFO_TEMPLATE, {})
+
+@login_required
+def account(request):
+    user = User.objects.get(username=request.user)
+
+    username = user.username
+    name = user.first_name + ' ' + user.last_name
+    email = user.email
+    date_joined = user.date_joined
+    last_login = user.last_login
+
+    return render(request, ACCOUNT_TEMPLATE, {})
