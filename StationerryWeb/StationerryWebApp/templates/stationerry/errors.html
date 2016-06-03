@@ -87,17 +87,23 @@
 
 {% if hideResults == False %}
 <div class="result-box">
- <h2>Results for '{{searchQuery}}'</h2>
-          
+
+  {% if errorList|length == 0 %}
+  <h2> No results for '{{searchQuery}}'. </h2>
+
+  {% else %}
+  <h2>Results for '{{searchQuery}}'</h2>
+  
+
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Time</th>
         <th>Error Type</th>
         <th>Error Message</th>
-        <th>App</th>
+        <th>App Name</th>
         <th>App Version</th>
-        <th>OS</th>
+        <th>Device OS</th>
         <th>Device Model</th>
         <th>Status</th>
       </tr>
@@ -108,14 +114,21 @@
 
       {% for error in errorList %}
       <tr>
-        <td>{{error.title}}</td>
-        <td>{{error.author}}</td>
-        <td>{{error.year}}</td>
+        <td>{{error.time}}</td>
+        <td>{{error.error_type}}</td>
+        <td>{{error.msg}}</td>
+        <td>{{error.app_name}}</td>
+        <td>{{error.app_version}</td>
+        <td>{{error.device_os}}</td>
+        <td>{{error.device_model}}</td>
+        <td>{{error.status}}</td>
       </tr>
       {% endfor %}
 
     </tbody>
   </table>
+
+  {% endif %}  
 </div>
 
 {% endif %}

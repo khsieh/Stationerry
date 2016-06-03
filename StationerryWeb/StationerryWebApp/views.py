@@ -103,6 +103,7 @@ def errors(request):
     searchQuery = ""
     hideResults = True
 
+    # default search
     if 'q' in request.GET:
         # check if the GET request named 'q' has an empty value
         if request.GET['q'] == '':
@@ -113,10 +114,15 @@ def errors(request):
         else:
             print 'ERRORS.HTML: You searched for ' + request.GET['q']
 
+            errorList = getAllErrors(request.GET['q'])
+
+            """
             book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}
             book2 = {'title':'Flying Pig', 'author':'Piggie', 'year': '2016'}
             errorList.append(book1)
             errorList.append(book2) 
+            """
+
             hideResults = False
             searchQuery = request.GET['q']
 
