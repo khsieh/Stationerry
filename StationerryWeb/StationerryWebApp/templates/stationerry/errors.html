@@ -2,6 +2,8 @@
 
 {% block extra-styles %} 
 <link rel="stylesheet" href="/static/css/errors.css"> 
+<link href='https://fonts.googleapis.com/css?family=Quicksand:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 {% endblock %}
 
 {% block link-errors %} <a class="link-errors selected" href="{% url 'errors' %}"><i class="fa fa-search"></i>Errors</a> {% endblock %}
@@ -30,10 +32,10 @@
         <input id="error-type" name="errorType" value="" class="form-control" placeholder="eg: NullException" type="text">
       </div>
 
-      <div class="form-group">
+      <!--div class="form-group">
         <div class="input-name">Error Message</div>
         <input id="app-msg" name="errorMsg" value="" class="form-control" placeholder="eg: syntax error at line 12" type="text">
-      </div>
+      </div-->
 
       <div class="form-group">
         <div class="input-name">App Name</div>
@@ -41,13 +43,13 @@
       </div>
 
       <div class="form-group">
-        <div class="input-name">App Version</div>
+        <div class="input-name">Version Name</div>
         <input id="app-version" name="appVersion" value="" class="form-control" placeholder="eg: 2.8" type="text">
       </div>
 
       <div class="form-group">
-        <div class="input-name">Operating System</div>
-        <input id="os" name="os" value="" class="form-control" placeholder="eg: Linux" type="text">
+        <div class="input-name">OS Version</div>
+        <input id="os" name="os" value="" class="form-control" placeholder="eg: 6.0" type="text">
       </div>
 
       <div class="form-group">
@@ -55,10 +57,10 @@
         <input id="device-model" name="deviceModel" value="" class="form-control" placeholder="eg: Samsung Galaxy S7" type="text">
       </div>
 
-      <div class="form-group">
+      <!--div class="form-group">
         <div class="input-name">Status</div>
         <input id="status" name="status" value="" class="form-control" placeholder="eg: unresolved" type="text">
-      </div>
+      </div-->
 
       <br><br>
 
@@ -97,7 +99,7 @@
 
   <table class="table table-hover">
     <thead>
-      <tr>
+      <tr id="table-column-elements">
         <th>Time</th>
         <th>Error Type</th>
         <th>Error Message</th>
@@ -112,7 +114,7 @@
     <tbody>
 
       {% for error in errorList %}
-      <tr>
+      <tr id="table-row-elements">
         <td>{{error.time}}</td>
         <td>{{error.error_type}}</td>
         <td>{{error.error_msg}}</td>
