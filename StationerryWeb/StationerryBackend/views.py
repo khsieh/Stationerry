@@ -27,7 +27,7 @@ def recievereport(request) :
     try :
         # data is sent as a json object
         data = json.loads(raw_data)
-        insertDB = insertReportIntoDB(data['name'], data['version'], data['platform'], data['type'], data['report'], "", "", "")
+        insertDB = insertReportIntoDB(data['CUSTOM_DATA']["AppName"], data['BUILD_CONFIG']['VERSION_NAME'], data['BUILD']['VERSION']['RELEASE'], "Exception", data['STACK_TRACE'], data['BRAND'], data['PHONE_MODEL'], "Android")
         return insertDB
     except :
         # data is just a long byte stream according to a specific format.
