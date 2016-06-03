@@ -3,6 +3,7 @@
 import re
 import sys
 import models as m
+from django.contrib.auth.models import User
 
 def parse(AppName, AppVersion, AppPlatform, SearchString) :
     loglist = []
@@ -76,11 +77,25 @@ def findError(SearchString) :
     return matchedlines
     
 
-def getAllErrors(errorString) :
-    logList = []
+def getAllErrors(errorString, user) :
+    #filter for only user's reports
+    currentUser = User.objects.get(username=user)
+    
+    appSet = m.App.objects.filter(username=user)
+    #print "AppSet: ", len(appSet)
     reportSet = m.BugReport.objects.all()
-    #print len(reportSet)
-    for report in reportSet:
+    #print "reportSet: ", len(reportSet)
+    userList = []
+    for app in appSet:
+        for report in reportSet:
+            if (app.App_Name == report.App_Name.App_Name):
+                print "Matched!!"
+                userList.append(report)
+    userSet = list(set(userList))
+
+    #this works... but it prints all bug reports
+    logList = []
+    for report in userSet:
         report_lines = report.Error_Message.split('\n')
         for line in report_lines:
             #print report.Error_Message

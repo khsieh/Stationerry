@@ -114,7 +114,7 @@ def errors(request):
         else:
             print 'ERRORS.HTML: You searched for ' + request.GET['q']
 
-            errorList = getAllErrors(request.GET['q'])
+            errorList = getAllErrors(request.GET['q'], request.user)
 
             """
             book1 = {'title':'The Great Whale', 'author':'Wailord', 'year': '2014'}

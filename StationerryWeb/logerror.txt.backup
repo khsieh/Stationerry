@@ -1,0 +1,60 @@
+USER_COMMENT=null
+STACK_TRACE=java.lang.IllegalStateException: Could not execute method for android:onClick
+at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:293)
+at android.view.View.performClick(View.java:5697)
+at android.widget.TextView.performClick(TextView.java:10816)
+at android.view.View$PerformClick.run(View.java:22526)
+at android.os.Handler.handleCallback(Handler.java:739)
+at android.os.Handler.dispatchMessage(Handler.java:95)
+at android.os.Looper.loop(Looper.java:158)
+at android.app.ActivityThread.main(ActivityThread.java:7224)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1230)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1120)
+Caused by: java.lang.reflect.InvocationTargetException
+at java.lang.reflect.Method.invoke(Native Method)
+at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:288)
+... 10 more
+Caused by: java.lang.IndexOutOfBoundsException: Throwing out of bounds exception!
+at com.saito.logerrors.MainActivity.throwException(MainActivity.java:22)
+... 12 more
+java.lang.reflect.InvocationTargetException
+at java.lang.reflect.Method.invoke(Native Method)
+at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:288)
+at android.view.View.performClick(View.java:5697)
+at android.widget.TextView.performClick(TextView.java:10816)
+at android.view.View$PerformClick.run(View.java:22526)
+at android.os.Handler.handleCallback(Handler.java:739)
+at android.os.Handler.dispatchMessage(Handler.java:95)
+at android.os.Looper.loop(Looper.java:158)
+at android.app.ActivityThread.main(ActivityThread.java:7224)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1230)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1120)
+Caused by: java.lang.IndexOutOfBoundsException: Throwing out of bounds exception!
+at com.saito.logerrors.MainActivity.throwException(MainActivity.java:22)
+... 12 more
+java.lang.IndexOutOfBoundsException: Throwing out of bounds exception!
+at com.saito.logerrors.MainActivity.throwException(MainActivity.java:22)
+at java.lang.reflect.Method.invoke(Native Method)
+at android.support.v7.app.AppCompatViewInflater$DeclaredOnClickListener.onClick(AppCompatViewInflater.java:288)
+at android.view.View.performClick(View.java:5697)
+at android.widget.TextView.performClick(TextView.java:10816)
+at android.view.View$PerformClick.run(View.java:22526)
+at android.os.Handler.handleCallback(Handler.java:739)
+at android.os.Handler.dispatchMessage(Handler.java:95)
+at android.os.Looper.loop(Looper.java:158)
+at android.app.ActivityThread.main(ActivityThread.java:7224)
+at java.lang.reflect.Method.invoke(Native Method)
+at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:1230)
+at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1120)
+
+CUSTOM_DATA=UserID = Username
+AppName = LogErrors
+ActivityName = App
+TimeOccured = 17:14:43
+
+PHONE_MODEL=SAMSUNG-SM-G930A
+BRAND=samsung
+ANDROID_VERSION=6.0.1
+APP_VERSION_NAME=1.0
