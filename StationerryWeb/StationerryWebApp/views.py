@@ -14,6 +14,8 @@ from .models import App
 # import utilities.py
 from StationerryBackend.utilities import *
 
+import datetime
+
 """ 
 Create your views here.
 Views are referenced by StationerryWebApp.urls
@@ -95,7 +97,12 @@ def userLogout(request):
 # This is the main page after the user logs in.
 @login_required
 def dashboard(request):
-    return render(request, DASH_TEMPLATE, {})
+    now = datetime.datetime.now()
+    monthName = now.strftime("%b")
+    day = str(now.day)
+    year = str(now.year) 
+
+    return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year})
 
 @login_required
 def errors(request):
