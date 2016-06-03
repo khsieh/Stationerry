@@ -14,6 +14,8 @@ from .models import App
 # import utilities.py
 from StationerryBackend.utilities import *
 
+import datetime
+
 """ 
 Create your views here.
 Views are referenced by StationerryWebApp.urls
@@ -95,7 +97,12 @@ def userLogout(request):
 # This is the main page after the user logs in.
 @login_required
 def dashboard(request):
-    return render(request, DASH_TEMPLATE, {})
+    now = datetime.datetime.now()
+    monthName = now.strftime("%b")
+    day = str(now.day)
+    year = str(now.year) 
+
+    return render(request, DASH_TEMPLATE, {'monthName' : monthName, 'day':day, 'year': year})
 
 @login_required
 def errors(request):
@@ -118,7 +125,11 @@ def errors(request):
 
             hideResults = False
             searchQuery = request.GET['q']
+<<<<<<< HEAD
     #filter search
+=======
+
+>>>>>>> 34227de5f8ed5130b7b45a61426304737dd99e5f
     elif 'fq' in request.GET:
         if request.GET['fq'] == '':
             print 'ERRORS.HTML: Nothing was entered.'
@@ -129,6 +140,10 @@ def errors(request):
             errorList = errorFilters(request.GET['fq'], request.GET['errorType'], request.GET['appName'], request.GET['appVersion'], request.GET['os'], request.GET['deviceModel'], request.user)
             hideResults = False
             searchQuery = request.GET['fq']
+<<<<<<< HEAD
+=======
+
+>>>>>>> 34227de5f8ed5130b7b45a61426304737dd99e5f
 
     return render(request, ERRORS_TEMPLATE, {"errorList" : errorList, "hideResults" : hideResults, "searchQuery" : searchQuery})
 

@@ -52,6 +52,28 @@
     <div class="r2-box1-text">Top 5 Common Errors</div>
     <div id="top5-chart"></div>
   </div>
+
+  <div class="r2-box3">
+    <div id="updatetime">
+      <br>
+    </div>
+  </div>
+
+  <div id="r2-box4">
+    <div class="date" id="month">
+      {{ monthName }}
+    </div>
+
+    <div class="date" id="day">
+      {{ day }}
+    </div>
+  
+    <div class="date" id="year">
+       {{ year }}
+    </div>
+  </div>
+
+  </div> <!-- end row2 -->
 </div>
 
 {% endblock %}
@@ -121,39 +143,9 @@
 
     }
 
-</script>
-<!--
-<script src="/static/js/Chart.js"></script> 
-<script>
-
-	var ctx = document.getElementById("WeeklyErrorsChart");
-	var data = 
-	{
-    	labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    	datasets: [
-        {
-            label: "Daily Errors",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
-            borderWidth: 1,
-            scaleFontFamily : "'Open Sans'",
-            /*tension: 0, */
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
-            data: [65, 59, 80, 81, 56, 55, 40],
-        }]
-	};
-
-	var options = {
-		scaleFontColor: "#FFFFFF",
-		scales: {
-			/* yAxes:[{ gridLines: {display: false }}],
-			xAxes: [{ gridLines: {display: false }}] */
-		}
-	};
-
-	var myChart = new Chart(ctx, { type: 'line', data, options});
+setInterval(function(){
+    document.getElementById("updatetime").innerHTML = (new Date()).toLocaleTimeString();
+}, 1000);
 
 </script>
--->
 {% endblock %}

@@ -41,6 +41,9 @@ Summer-Sky: #286DA8;
 
 	--top-five-error-box-background-color: #37474f;
 	--top-five-error-box-hover-color: #263238;
+
+	--time-color: #26a69a;
+	--time-hover-color: #009688;
 }
 
 #r1-icons {
@@ -152,7 +155,7 @@ Summer-Sky: #286DA8;
 
 .row2 {
 	float: top;
-
+	width: 90%;
 }
 
 /* Line graph */
@@ -191,7 +194,7 @@ Summer-Sky: #286DA8;
 	float: left;
 	margin-right: 20px;
 	width: 470px;
-	height: 310px;
+	height: 315px;
 	color: white;
 	background-color: var(--top-five-error-box-background-color);
 	border-radius: 10px;
@@ -206,4 +209,64 @@ Summer-Sky: #286DA8;
 	margin-left: -115px;
 	width: 700px;
 	height: 400px;
+}
+
+.r2-box3 {
+	float: left;
+	margin-right: 20px;
+	width: 200px;
+	height: 60px;
+	font-size: 26px;
+	font-family: 'Roboto';
+	text-align: center;
+	color: white;
+	background-color: var(--time-color);
+
+	border-radius: 10px;
+}
+
+.r2-box3:hover {
+	background-color: var(--time-hover-color);
+}
+
+#updatetime {
+	height: 100%;
+	padding-top: 10px;
+}
+
+#r2-box4 {
+	float: left;
+	margin-top: 20px;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	color: white;
+	background-color: #66bb6a;
+	border-radius: 10px;
+}
+
+#r2-box4:hover {
+	background-color: #4caf50;
+}
+
+.date {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#month {
+	font-size: 50px;
+	font-family: 'Montserrat';
+}
+
+#day {
+	margin-top: -25px;
+	font-size: 70px;
+	font-family: 'Montserrat';
+}
+
+#year{
+	margin-top: -25px;
+	font-size: 50px;
+	font-family: 'Montserrat';
 }
