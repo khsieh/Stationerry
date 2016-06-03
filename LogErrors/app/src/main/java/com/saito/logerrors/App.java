@@ -5,13 +5,16 @@ import android.app.Application;
 import org.acra.ACRA;
 import org.acra.ReportingInteractionMode;
 import org.acra.annotation.ReportsCrashes;
+import org.acra.sender.HttpSender;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @ReportsCrashes(
+        //mailTo = "ryocsaito@gmail.com",
         formUri = "http://stationerry.pythonanywhere.com/backend/sendreport/",
-        reportType = org.acra.sender.HttpSender.Type.JSON,
+        reportType = HttpSender.Type.JSON,
+        httpMethod = org.acra.sender.HttpSender.Method.POST,
         mode = ReportingInteractionMode.TOAST,
         resToastText = R.string.CrashText)
 
